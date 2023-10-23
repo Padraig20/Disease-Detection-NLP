@@ -1,4 +1,4 @@
-# Disease Detection in Free Text
+# Disease Detection in Biomedical Free-Text
 
 ## 1. Topic
 
