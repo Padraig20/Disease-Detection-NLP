@@ -57,9 +57,9 @@ topics in total.
 
 **ADDITIONALS**
 
-Should the topics dataset not be enough in
+Should the topic-dataset not be enough in
 case of inference (e.g. error metrics too high), I will include more data from the 
-*ClinicalTrials.gov* database. It contains information on clinical trials, including
+[*ClinicalTrials.gov*](https://clinicaltrials.gov/) database. It contains information on clinical trials, including
 free text descriptions on said trials. This may be useful to further enhance the
 model's performance - given the complexity of annotating this kind of data, I
 would consider this only if the model's vocabulary does not suffice.
