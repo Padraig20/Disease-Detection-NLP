@@ -83,7 +83,7 @@ for this task.
 - **capturing and annotating data**
 *Goal*: Collect all necessary data and make it
 ready for training the model.
-*Time*: 20h
+*Time*: 25h
 *Deadline*: 12th Nov.
 - **describing data**
 *Goal*: Describe data, make plots for data visualization (e.g. wordclouds) for
@@ -92,12 +92,17 @@ better understanding of the data we are working with.
 *Deadline*: 14th Nov.
 - **implementing BERT**
 *Goal*: Implement and train a working BERT model.
-*Time*: 30h - 40h
+*Time*: 15h
 *Deadline*: 5th Dec.
 - **tuning BERT**
 *Goal*: Perform Hyperparameter Tuning and detect possible defects.
-*Time*: 15h - 20h
+*Time*: 10h
 *Deadline*: 19th Dec.
+- **report and presentation**
+*Goal*: Write a finished report and make a visually appealing presentation.
+*Time*: 10h
+*Deadline*: 16th Jan.
+  
 
 ## 4. Related Papers and Models
 
