@@ -98,8 +98,8 @@ better understanding of the data we are working with.
 *Goal*: Perform Hyperparameter Tuning and detect possible defects.
 *Time*: 10h
 *Deadline*: 19th Dec.
-- **report and presentation**
-*Goal*: Write a finished report and make a visually appealing presentation.
+- **report, presentation and application**
+*Goal*: Write a finished report and make a visually appealing presentation. Include a small Angular webapp.
 *Time*: 10h
 *Deadline*: 16th Jan.
   
