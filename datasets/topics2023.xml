@@ -1,0 +1,121 @@
+<topics task="2023 TREC Clinical Trials">
+    <topic number="1">
+        Patient has been diagnosed with primary open angle glaucoma. The patient's intraocular pressure is a concern and needs monitoring. There is moderate damage observed in the patient's visual field. The visual acuity is recorded at 0.3. The patient has not undergone prior cataract surgery or LASIK surgery. The presence of corneal edema, along with glaucoma, suggests comorbid ocular diseases. The definitive diagnosis is primary open angle glaucoma, and the patient's ocular health requires close attention due to the combination of factors mentioned.
+    </topic>
+    <topic number="2">
+        Patient presents with glaucoma, characterized by a definitive diagnosis of pigmentary glaucoma. Intraocular pressure measures at 15 mmHg, while the visual field remains normal. Visual acuity is recorded as 20/50. The patient has not undergone prior cataract surgery, but has had LASIK surgery. Additionally, comorbid ocular diseases include macular degeneration.    </topic>
+    <topic number="3">
+        Patient presents with uveitic glaucoma as the definitive diagnosis. Intraocular pressure measures at 28 mmHg. Visual field assessment indicates early field damage. Visual acuity is measured at 20/30. No prior history of cataract surgery or LASIK surgery. Notably, patient also presents with comorbid ocular disease, specifically macular edema.
+    </topic>
+    <topic number="4">
+        The patient has been diagnosed with glaucoma, specifically primary open-angle glaucoma (POAG). Their intraocular pressure measures at 48 mmHg, indicating elevated pressure within the eye. The patient exhibits advanced glaucomatous field damage in their visual field, and their visual acuity is recorded at 20/150. Notably, the patient has undergone prior cataract surgery. However, they have not had LASIK surgery. In addition to glaucoma, the patient also presents with comorbid ocular diseases, including diabetic retinopathy.
+    </topic>
+    <topic number="5">
+        The patient presents with neovascular glaucoma, as evidenced by an intraocular pressure of 22 mmHg. Visual field assessment indicates normal results, and the visual acuity is measured at 0.2. The patient has undergone prior cataract surgery but has not had LASIK surgery. There is no information available about comorbid ocular diseases.
+    </topic>
+    <topic number="6">
+        The individual, aged 39, has been definitively diagnosed with anxiety. They are proficient in English and have reported experiencing significant anxiety symptoms. Their SSASI score is 6, HAM-A score is 20, PHQ-9 score is 7, and HAM-D score is 23, indicating varying levels of anxiety and depressive symptoms. They have also expressed experiencing suicidal ideation. There is no history of dementia. Additional assessment using the GAD-7 and Beck Depression Inventory is ongoing to further understand their condition.
+    </topic>
+    <topic number="7">
+        The patient is 25 years old and proficient in English and Swedish. Several anxiety assessment tools have been used to evaluate the patient's condition. The SSASI, HAM-A, PHQ-9, HAM-D, GAD-7, and Beck Depression Inventory scores indicate varying levels of anxiety and depression. The patient reports experiencing suicidal ideation. There is no indication of dementia.
+    </topic>
+    <topic number="8">
+        The patient, a 12-year-old individual proficient in English and Spanish, is experiencing symptoms of anxiety. While a definitive diagnosis has not been made, the patient's SSASI score is 12, HAM-A score is 25, HAM-D score is 14, and there are no indications of suicidal ideation or dementia. The patient's condition is being assessed using the PHQ-9, GAD-7, and Beck Depression Inventory scales.
+    </topic>
+    <topic number="9">
+        The individual, an adult proficient in English and Dutch, has received a definitive diagnosis of anxiety. Assessments reveal elevated scores on various scales, including HAM-A (18), PHQ-9 (22), HAM-D (24), and GAD-7 (12). Suicidal ideation is present, while dementia is not.
+    </topic>
+    <topic number="10">
+        The individual under consideration is a 58-year-old person proficient in English and Turkish languages. A definitive diagnosis of anxiety has been established. Assessments have indicated a SSASI score, a HAM-A score of 12, a HAM-D score of 19, a GAD-7 score of 9, and an 8 on the Beck Depression Inventory. No presence of suicidal ideation has been observed. Additionally, the individual has been diagnosed with dementia.
+    </topic>
+    <topic number="11">
+        The patient has a definitive diagnosis of COPD with an FEV1 (Forced Expiratory Volume in 1 second) of 85%. The patient is classified as GOLD stage III. They have experienced three exacerbations in the past year. The prescribed COPD treatments include bronchodilators and steroids. The patient had a smoking history of 5 cigarettes per day until quitting two years ago. They also have a history of interstitial lung disease as a lung comorbidity, and hypertension as another comorbidity.
+    </topic>
+    <topic number="12">
+        Patient has been diagnosed with Chronic Obstructive Pulmonary Disease (COPD) in stage II according to the GOLD classification. His definitive diagnosis for COPD has been confirmed, and his FEV1 level is measured at 50%. The patient experienced two exacerbations in the past month. Notably, he has never been a smoker. Although he does not currently receive any COPD treatments, he does have a history of asthma as a lung comorbidity. No other comorbidities are present.
+    </topic>
+    <topic number="13">
+        The patient, diagnosed with COPD, has a definitive diagnosis and is in Stage IV according to the GOLD classification. Their FEV1 is measured at 65%, indicating impaired lung function. Over the past 12 months, they have experienced 8 exacerbations of their COPD. The patient is undergoing treatment, including using EVB and participating in pulmonary rehabilitation. They have a history of heavy smoking, with a daily consumption of 2 packs of cigarettes. Alongside COPD, the patient has been diagnosed with lung cancer, making it a comorbid condition. No other comorbidities are reported in the medical history.
+    </topic>
+    <topic number="14">
+        Patient has a confirmed diagnosis of Chronic Obstructive Pulmonary Disease (COPD) characterized by an FEV1 of 72%, placing him in GOLD stage II. Notably, he experienced his first exacerbation two weeks ago. Current COPD treatments include the administration of steroids. Notably, he has no history of smoking and does not report any lung-related comorbidities. However, he does have a history of glaucoma as an additional comorbidity.
+    </topic>
+    <topic number="15">
+        The individual's definitive diagnosis indicates COPD. Their FEV1 value stands at 55%, categorizing them within the early stage of COPD according to the GOLD classification. As of now, there have been no reported exacerbations. Treatment for COPD has not yet been initiated. Furthermore, there is no history of smoking. Additionally, the patient does not have any reported lung comorbidities or other comorbidities.
+    </topic>
+    <topic number="16">
+        The patient, diagnosed with breast cancer, has undergone a definitive diagnosis. HER2 status is positive, while information about hormone receptors is not specified. The patient has not received prior chemotherapy or radiotherapy. No prior mastectomy has been performed The patient's performance status is ECOG 1.
+    </topic>
+    <topic number="17">
+        The patient's definitive diagnosis is stage III breast cancer. HER2 status is negative, while hormone receptor status is ER+ and PR-. The patient has undergone neoadjuvant chemotherapy and prior stereotactic radiotherapy. A prior mastectomy has been performed. Surgery-related therapy included neoadjuvant chemotherapy. The patient's performance status is ECOG 2.
+    </topic>
+    <topic number="18">
+        The patient's breast cancer is at stage 2. The HER2 status is positive, while hormone receptors (PR and ER) are negative. The patient hasn't undergone prior chemotherapy, but has received prior radiotherapy. Mastectomy has not been performed previously. The patient's performance status is Karnofsky 70%.
+    </topic>
+    <topic number="19">
+        The patient has been diagnosed with stage IV breast cancer. The cancer is HER2 positive and hormone receptor positive for PR. The patient has undergone prior chemotherapy and radiotherapy treatments. A mastectomy has also been performed previously. The treatment approach included neoadjuvant chemotherapy in relation to surgery. The patient's performance status is ECOG 3, with a Karnofsky score of 50%.
+    </topic>
+    <topic number="20">
+        The patient has received a definitive diagnosis of breast cancer. Key details include a negative HER2 status and hormone receptor information. The patient has not undergone prior chemotherapy, radiotherapy, or mastectomy. Their performance status is ECOG 1.
+    </topic>
+    <topic number="21">
+        The patient's definitive diagnosis is confirmed through PCR testing. They have shown symptoms such as fever, muscle pain, and shortness of breath. The patient was hospitalized for 5 days, with 2 of those days requiring ventilation. Their vaccination status indicates they have received 1 shot of an mRNA vaccine. The patient's oxygen saturation level is at 95%. They have a history of asthma, a comorbid respiratory disease.
+    </topic>
+    <topic number="22">
+        The patient has been diagnosed with COVID-19. The definitive diagnosis was confirmed through PCR testing. The patient exhibited symptoms including fever, headache, and body pains. Due to the severity of the condition, the patient required hospitalization and ventilation support. At the time of assessment, the patient's oxygen saturation level was 96%. The patient had not received any vaccination against COVID-19 prior to this illness. Additionally, the patient had a history of bronchiectasis, a comorbid respiratory disease.
+    </topic>
+    <topic number="23">
+        The patient has received a definitive diagnosis of COVID-19 through a PCR test. Their reported symptoms include fever and muscle pain. They have not required hospitalization or ventilation for their condition. The patient's vaccination status indicates that they have received a 2-shot COVID-19 vaccine series along with a booster dose. Their oxygen saturation level is at 97%. There are no comorbid respiratory diseases reported in their medical history.
+    </topic>
+    <topic number="24">
+        The patient's definitive diagnosis of COVID-19 is based solely on a positive result from a rapid test. Their reported symptoms include headache and fatigue. They have not required hospitalization or ventilation support. The patient is unvaccinated against COVID-19. Their oxygen saturation level is at 98%. They have a history of asthma as a comorbid respiratory disease.
+    </topic>
+    <topic number="25">
+        The individual under consideration has not received a definitive diagnosis for COVID-19. They have experienced symptoms such as headache but have not required hospitalization or ventilation. Their vaccination status indicates that they are unvaccinated. Information regarding their oxygen saturation is not provided. Additionally, there are no reported comorbid respiratory diseases in this case.
+    </topic>
+    <topic number="26">
+        The patient has been diagnosed definitively with rheumatoid arthritis and is undergoing active treatment with methotrexate, with no prior DMARD treatment. They are also taking ibuprofen for their condition. The patient has 3 swollen joints and does not have tuberculosis. Comorbidities include hypertension.
+    </topic>
+    <topic number="27">
+        The patient's definitive diagnosis is rheumatoid arthritis. Currently, there is no active DMARD treatment, but there was prior treatment with hydroxychloroquine. Prednisone is being used along with other RA medications. The patient has 3 swollen and 2 tender joints. There is no history of tuberculosis. The DAS-28 CRP score is 4. Comorbidities are absent.
+    </topic>
+    <topic number="28">
+        The patient has a definitive diagnosis of rheumatoid arthritis. They are currently undergoing active anti-TNF therapy as their DMARD treatment. Prior to this, they were treated with methotrexate. Naproxen is being used as another medication for their rheumatoid arthritis. The patient has 5 swollen joints and 2 tender joints. They have a history of past tuberculosis. There are no comorbidities reported for the patient.
+    </topic>
+    <topic number="29">
+        The patient has a definitive diagnosis of rheumatoid arthritis and is currently undergoing active treatment with hydroxychloroquine, without prior DMARD treatment. Additionally, the patient is taking ibuprofen for their condition. They are experiencing symptoms in 6 tender joints and have a DAS-28 CRP score of 5.5. The patient has comorbid diabetes but no history of tuberculosis.
+    </topic>
+    <topic number="30">
+        Patient has a definitive diagnosis of rheumatoid arthritis. They are undergoing active anti-TNF therapy as their DMARD treatment, with no prior DMARD treatment or other RA medications. The patient does not have tuberculosis and reports no comorbidities.
+    </topic>
+    <topic number="31">
+        The patient's definitive diagnosis is sickle cell anemia (SS genotype). A blood transfusion was administered one week ago. The hemoglobin level is currently 5.8 g/dL. The patient's last vaso-occlusive crisis occurred two months ago. There is no history of stroke.
+    </topic>
+    <topic number="32">
+        The individual has been diagnosed with sickle cell anemia (SC), a hereditary blood disorder. Their hemoglobin level is 8.7 g/dl. They have experienced five vaso-occlusive crises in the last 12 months. Additionally, the patient has a history of stroke that occurred 12 years ago. Blood transfusion has never been administered to this patient.
+    </topic>
+    <topic number="33">
+        The patient has been diagnosed with sickle cell anemia (SB+). Three weeks ago, the patient received a blood transfusion. Their current hemoglobin level is 10.5. The patient's last vaso-occlusive crisis occurred six months ago, and they have never had a history of stroke.
+    </topic>
+    <topic number="34">
+        Patient has been diagnosed with sickle cell anemia. Definitive diagnosis indicates the presence of SS. The patient received a blood transfusion six months ago. Hemoglobin level is recorded at 9.0 g/DL. The patient's most recent vaso-occlusive crisis occurred 2 years ago, while their medical history includes an ischemic stroke that occurred 2 years ago.
+    </topic>
+    <topic number="35">
+        This patient, diagnosed with sickle cell anemia, has a hemoglobin level of 7.5 g/dL. They experienced a vaso-occlusive crisis two weeks ago but have no history of stroke. Blood transfusions have not been required in their medical history.
+    </topic>
+    <topic number="36">
+        The patient, diagnosed with type 2 diabetes, has a confirmed diagnosis with a definitive assessment. Their HbA1c level stands at 7.2%, indicating their blood glucose control over recent months. Fasting glucose measures 138, while their BMI is 45, signifying their body mass index. The patient is not on insulin therapy nor taking metformin or other anti-diabetic drugs. There are no specific diet restrictions in place. Limited exercise is possible due to being confined to a wheelchair. There is no history of ketoacidosis. The patient has comorbidities including lung cancer, hypertension, and dementia. Recent medical events include a myocardial infarction six months ago.
+    </topic>
+    <topic number="37">
+        The individual under consideration exhibits characteristics indicative of type 2 diabetes. The diagnosis is definitive, with a recorded HbA1c level of 4.5 and a glucose level of 95. The patient's BMI is 28, and they do not require insulin treatment. Instead, they are prescribed 5 ml of metformin and a thiazolidinedione as other anti-diabetic medications. The patient adheres to a low-calorie diet and engages in a weekly regimen of walking 2 miles. A history of ketoacidosis is present, along with comorbidities encompassing hypertension and a thyroid disorder. Notably, the patient has not experienced any instances of hospitalization.
+    </topic>
+    <topic number="38">
+        The patient is diagnosed with type 2 diabetes. The diagnosis is definitive, indicated by an HbA1c level of 6 and fasting blood sugar of 115. The patient has a BMI of 35. Insulin is being used, along with 8.5 mL of metformin and a sulfonylurea for additional anti-diabetic treatment. Dietary restrictions involve periodic fasting, and the patient engages in 500 meters of daily walking for exercise. There is no history of ketoacidosis, and comorbidities are absent, except for a stroke event in the previous year.
+    </topic>
+    <topic number="39">
+        The patient, diagnosed with type 2 diabetes, has received a definitive diagnosis. Their HbA1c level is 5.5, with a glucose level of 100. The patient's BMI is 32. They are not using insulin, but they are taking 5 mL of metformin. No other anti-diabetic drugs are being used. The patient follows a keto diet and engages in regular exercise by jogging 2 miles per day. The patient has a history of ketoacidosis and hypertension. They have never been hospitalized due to their condition.
+    </topic>
+    <topic number="40">
+        The patient, diagnosed with type 2 diabetes (HbA1c: 6.3%, fasting blood sugar: 115), has a BMI of 40. Insulin is not currently prescribed, but they are taking 8.5 mL of metformin. No other anti-diabetic drugs are being used. The patient follows a low-calorie diet and does not engage in regular exercise. There's no history of ketoacidosis, but they do have chronic kidney disease as a comorbidity. Hospitalization due to diabetes has not occurred.
+    </topic>
+</topics>

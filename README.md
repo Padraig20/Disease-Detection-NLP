@@ -45,11 +45,11 @@ family medical history. For simplification purposes, the focus lies on
 detecting diseases/diagnoses present in the text, covering conditions such as diabetes
 mellitus or high blood pressure.
 
-This dataset makes a total of 315 entries (topics). This includes:
+This dataset makes a total of 255 entries (topics). This includes:
 
 - **topics2016.xml** - valuable information in *note*, *description* and *summary*.
-50 topics in total. The fields could be processed individually, though, creating
-a total of 150 topics.
+30 topics in total. The fields could be processed individually, though, creating
+a total of 90 topics.
 - **topics2021.xml** - 75 topics in total.
 - **topics2022.xml** - 50 topics in total.
 - **topics2023.xml** - preprocessed to free text in admission note style via LLM - 40
