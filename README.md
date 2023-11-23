@@ -117,3 +117,35 @@ Interestingly enough, this tool can capture many entities and fields that are de
 via rudimentary regular expressions as seen in its source code. Available at: 
 https://github.com/medspacy/medspacy
 
+# Notes during Development
+
+## Data Labelling
+
+Data Labelling has been done via doccano.
+
+I have encountered several interesting issues while labelling data as 'medical conditions', since the definiton of a medical condition is not clear and is subject
+to interpretation. For instance, it is uncertain whether 'fever' should be classified as a medical condition (i.e. disease) or a symptom. The same counts for
+fracture of bone etc. For the purpose of this exercise, I have looked up several medical ontologies and websites, in order to see how specific medical lingo
+is classified. As an example, 'fever' or 'dyspnea' have, in fact, not been listed as medical conditions, but rather as symptoms.
+
+Since doctors use many abbreviations for admission notes (e.g. 'CAD' for 'Coronary Artery Disease'), this website was very helpful: https://www.allacronyms.com/
+
+## Data Visualization
+
+I have decided for wordclouds and word-frequency tables to get an overlook over the text data as well as the classified data.
+
+**Wordcloud for free-text admission notes**
+
+![wordcloud_text](https://github.com/Padraig20/Applied-Deep-Learning-VU/assets/111874815/839b1ac2-4050-4118-8280-c526c8a7d525)
+
+**Word-Freqency Table for free-text admission notes**
+
+![wordfreq_text](https://github.com/Padraig20/Applied-Deep-Learning-VU/assets/111874815/103ff040-7beb-4611-a0de-14b00f0d79ed)
+
+**Wordcloud for medical conditions**
+
+![wordcloud_entities](https://github.com/Padraig20/Applied-Deep-Learning-VU/assets/111874815/d7e82fb8-530a-4aa6-b585-3e719a07def9)
+
+**Word-Frequency Table for medical conditions**
+
+![wordfreq_entities](https://github.com/Padraig20/Applied-Deep-Learning-VU/assets/111874815/f19901a2-bbc4-4dbb-895d-3609709da594)
