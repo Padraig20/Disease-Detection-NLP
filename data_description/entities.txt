@@ -1,0 +1,1038 @@
+glaucoma
+pigmentary glaucoma
+comorbid ocular diseases
+macular degeneration
+primary open angle glaucoma
+corneal edema
+glaucoma
+comorbid ocular diseases
+primary open angle glaucoma
+glaucoma
+primary open-angle glaucoma
+POAG
+advanced glaucomatous field damage
+glaucoma
+comorbid ocular diseases
+diabetic retinopathy
+uveitic glaucoma
+comorbid ocular disease
+macular edema
+anxiety
+anxiety
+dementia
+neovascular glaucoma
+comorbid ocular diseases
+anxiety
+anxiety
+depression
+dementia
+anxiety
+dementia
+anxiety
+dementia
+anxiety
+dementia
+COPD
+COPD
+interstitial lung disease
+lung comorbidity
+hypertension
+comorbidity
+Chronic Obstructive Pulmonary Disease
+COPD
+COPD
+COPD
+asthma
+lung comorbidity
+comorbidities
+COPD
+impaired lung function
+COPD
+COPD
+lung cancer
+comorbid condition
+comorbidities
+Chronic Obstructive Pulmonary Disease
+COPD
+COPD
+lung-related comorbidities
+glaucoma
+additional comorbidity
+COPD
+COPD
+comorbidities
+COPD
+lung comorbidities
+breast cancer,
+stage III breast cancer
+breast cancer
+stage IV breast cancer
+cancer
+breast cancer
+asthma
+comorbid respiratory disease
+bronchiectasis
+comorbid respiratory disease
+COVID-19
+COVID-19
+COVID-19
+COVID-19
+comorbid respiratory diseases
+COVID-19
+COVID-19
+asthma
+comorbid respiratory disease
+COVID-19
+comorbid respiratory diseases
+rheumatoid arthritis
+tuberculosis
+Comorbidities
+hypertension
+rheumatoid arthritis
+tuberculosis
+Comorbidities
+rheumatoid arthritis
+tuberculosis
+comorbidities
+rheumatoid arthritis
+rheumatoid arthritis
+tuberculosis
+comorbid diabetes
+rheumatoid arthritis
+tuberculosis
+comorbidities
+sickle cell anemia
+sickle cell anemia
+hereditary blood disorder
+sickle cell anemia
+sickle cell anemia
+sickle cell anemia
+type 2 diabetes
+ketoacidosis
+comorbidities
+lung cancer
+hypertension
+dementia
+myocardial infarction
+type 2 diabetes
+ketoacidosis
+comorbidities
+hypertension
+thyroid disorder
+type 2 diabetes
+ketoacidosis
+comorbidities
+type 2 diabetes
+ketoacidosis
+hypertension
+type 2 diabetes
+ketoacidosis
+chronic kidney disease
+comorbidity
+diabetes
+hypertension
+aortic stenosis
+hyperlipidemia
+arthroplasty
+NQWMI
+PVD
+CAD
+DM
+CKD
+hypotension
+hypotension
+diarrhea
+rash
+osteoporosis
+CAD
+sinus tachycardia
+ST depressions
+ICH
+chronic obstructive pulmonary disease
+atrial stenosis
+atrial fibrillation
+renal cell carcinoma
+colon cancer
+PE
+DVT
+atrial fibrillation
+CAD
+PE
+distended gallbladder with gallstones
+biliary obstruction
+obesity
+cholelithiasis
+hypertension
+hematemasis
+pancytopenia
+coagulopathy
+bacterial peritonitis
+pregnant
+IDDM
+hyperemesis
+pregnancy
+pregnancy
+chorioamnionitis
+sarcoidosis
+diastolic dysfunction
+COPD
+varices s/p TIPS
+hypothyroidism
+asterixis
+hepatosplenomegaly
+dementia
+CABG
+occluded SVG
+fractures
+abdominal compartment syndrome
+interparenchymal hemorrhages
+myelitis
+paraplegia
+depression
+stage IV decubitus ulcer
+thrombocytosis
+chronic obstructive pulmonary disease
+breast cancer
+multi-focal pneumonia
+COPD
+tracheobronchomalacia
+squamous cell carcinoma
+legionella PNA
+diastolic congestive heart failure
+atrial fibrillation
+orthopnea
+Delirium Tremens
+hep C
+HTN
+dCHF
+Diabetes
+CKD
+Atrial fibrillation
+chronic atrial fibrillation
+hypertension
+hypothyroidism
+CAD
+CHF
+CRI
+biphenotypic ALL
+edema
+CMV infection
+aspergillus
+Leggionare's disease
+pneumonia
+dementia
+colon cancer
+multiple sclerosis
+quadriparesis
+hypertension
+restrictive lung disease
+chronic constipation
+small bowel obstruction
+multiple urinary tract infections
+small bowel obstruction
+urinary tract infection
+CAD
+diastolic CHF
+HTN
+Hyperlipidemia
+atrial fibrillation
+pleueral effusion
+orthopnea
+CHF
+intrinsic pulmonary disease
+embolic disease
+atrial fibrillation
+Chronic Obstructive Pulmonary Disease
+hypertension
+hyperlipidemia
+atrial septum defect
+sternal wound infection
+atrial fibrillation
+atrial fibrillation
+pneumonia
+malignancy
+atrial fibrillation
+pneumonia
+large cell carcinoma
+coronary artery disease
+melena
+SDH
+hematoma
+herniation
+transtentorial herniation
+uncal herniation
+HTN
+HL
+breast CA
+renal pelvis transitional cell tumor
+idiopathic pulmonary fibrosis
+dyspnea
+pulmonary fibrosis
+eosinophilic lung disease
+pneumomediastinum
+CABG
+acute pulmonary edema
+CHF
+unresponsiveness
+hypertension
+severe aortic stenosis
+hyperlipidemia
+arthroplasty
+Edema
+Orthopnea
+atherosclerosis
+valvular stenosis
+CAD
+ATRIAL FIBRILLATION
+anticoagulation
+HTN
+pulmonary edema
+Hyperlipidemia
+PVD
+CAD
+DM
+CKD
+osteoporosis
+CAD
+pulmonary emoblus
+rib pain
+CDiff infection
+ICH
+COPD
+AS
+afib
+colon ca
+RCC
+edema
+edema
+fibrillation
+CAD
+afib
+bilateral PE
+ulcer
+esophageal stricture
+pregnant
+IDDM
+pregnancy
+cholelithiasis
+HTN
+obesity
+hematemasis
+SBP
+Sclera icteric
+obese
+obese
+pregnancy
+infection
+pleural effusion
+pneumothorax
+hepatic sarcoidosis
+regenerative hyperplasia
+variceal bleeding
+portal hypertensive gastropathy
+asterixis
+hepatosplenomegaly
+dementia
+CAD
+angina
+angina
+angina
+compartment syndrome
+interparenchymal hemorrhages
+breast cancer
+multi-focal pneumonia
+Cyanosis
+Jaundice
+COPD
+Sclera edema
+paraplegia
+diarrhea
+myelitis
+depression
+ulcers
+stage IV decubitus
+carcinoma
+COPD
+tracheobronchomalacia
+dysarthria
+legionella PNA
+fibrillation
+diahrrea
+orthopnea
+Hypertension
+Atrial flutter/fibrillation
+Diastolic heart failure
+Hysterectomy
+diastolic CHF
+hep C
+CP
+seizures
+diarrhea
+orthopnea
+pregnancy
+edema
+AVH
+SI
+Hep C
+Infectious endocarditis
+STDs
+HIV
+Hep B
+obese
+Sclera anicteric
+MMM
+oropharynx
+obese
+HTN
+dCHF
+Diabetes
+CKD
+fibrillation
+ischemic stroke
+Somnolence
+presyncope
+scleral icterus
+MMM
+edema
+fibrillation
+hypertension
+hypothyroidism
+edema
+biphenotypic ALL
+lower extremity edema
+diarrhea
+hypoxia
+Hypoxia
+hypoxia
+bacterial pneumonia
+viral pneumonia
+CMV
+flu
+infections
+fungal infections
+CMV infection
+aspergillus
+Leggionare's disease
+pneumonia
+hypertrophy
+ventricular hypokinesis
+stenosis
+AD
+diverticulosis
+dx colon ca
+duodenal ulcer
+diverticulosis
+colon ca
+PUD
+anastomotic site
+Diarrhea
+erythema
+Alzheimer's
+dementia
+MS
+quadraparesis
+HTN
+lung disease
+chronic constipation
+SBOs
+UTIs
+UTI
+UTI
+shingles
+rhinorrhea
+AF
+COPD
+HTN
+hyperlipidemia
+sternal wound infection
+AF
+fibrillation
+PNA
+malignancy
+fibrillation
+fibrillation
+post-obstructive pneumonia
+large cell carcinoma
+atrial fibrillation
+tachypnea
+diaphoresis
+CAD
+RCA
+BMS
+mRCA
+pLAD
+diastolic CHF
+MR
+HTN
+Hyperlipidemia
+atrial fibrillation
+dyspnea
+atrial thrombi
+PE
+peripheral emboli
+dyspnea
+dyspnea
+restrictive ventilatory defect
+interstitial pulmonary process
+chronic dyspnea
+CHF
+intrinsic pulmonary disease
+embolic
+afib
+SDH
+dementia
+HTN
+afib
+CAD
+hematoma
+CAD
+DM
+HTN
+diaphoresis
+Coronary artery disease
+Hypertension
+Peripheral arterial disease
+Hypercholesterolemia
+Diabetes
+Osteoarthritis
+Gout
+Anemia
+Prostate disease
+IPF
+dyspnea
+rhinorrhea
+fibrosis
+eosinophils
+eosinophils
+eosinophilic lung disease
+pneumomediastinum
+superimposed infection
+HTN
+HL
+breast CA
+cell tumor
+melena
+arthroplasty
+osteoporosis
+DM2
+depression
+tachycardia
+dementia
+tachypnea
+bradycardia
+dyspnea
+DVT,
+PE
+atrial fibrillation
+CAD
+hyperemesis
+cholelithiasis
+hypertension
+obesity
+hematemasis
+respiratory distress syndrome
+asterixis
+sarcoidosis
+demantia
+CABG
+depression
+stage IV decubitus ulcers
+transverse myelitis
+paraplegia
+ulcers
+thrombocytosis
+COPD
+breast cancer
+hypoxia
+squamous cell carcinoma
+COPD
+tracheobronchomalacia
+legionella PNA
+dysarthria
+dyspnea
+diastolic congestive heart failure
+atrial fibrillation
+Delirium Tremens
+hep C
+diarrhea
+HTN
+Diabetes
+Atrial fibrillation
+ischemic stroke
+dCHF
+CKD
+CAD
+CHF
+CRI
+vfib arrest
+biphenotypic ALL
+BMT
+CMV infection
+aspergillus
+Leggionare's disease
+hypoxia
+pneumonia
+colon CA
+multiple sclerosis
+quadriplegia
+atrial fibrillation
+Chronic Obstructive Pulmonary Disease
+hypertension
+hyperlipidemia
+atrial fibrillation
+CAD
+diastolic CHF
+HTN
+Hyperlipidemia
+atrial fibrillation
+hematoma
+coronary artery disease
+melena
+idiopathic pulmonary  fibrosis
+pneumonia
+neuromuscular disease
+ALS
+Sjogren disease
+conjunctival erythema
+obesity
+hyperlipidemia
+diabetes mellitus
+erythema migrans
+Lyme disease
+Cauda Equina syndrome
+azoospermia
+pneumonia
+lung infections
+myopia
+Marfan syndrome
+hypothyroidism
+DM type 2
+HTN
+endogenous Cushing Syndrome
+overweight body habitus
+oral ulcers
+hyperkeratosis
+myalgia
+Covid
+lymphadenopathy
+erythema
+telangiectasias
+perifascicular inflammation
+atrophy
+UTIs
+fatigue
+hemochromatosis
+hypertension
+hypercholesteremia
+peptic ulcer disease
+thoracentesis
+dysphagia
+hypertension
+dyslipidemia
+osteoarthritis
+hypertension
+osteoarthritis
+asbestosis
+pulmonary fibrosis
+infertility
+Klinefelter syndrome
+arthralgias
+hepatomegaly
+noncaseating granulomas
+respiratory infections
+fragile X syndrome
+X-linked disorder
+fragile X mental retardation 1
+FMR1
+hypertension
+hypercholesteremia
+subchondral bone sclerosis
+osteophyte formation
+syncope
+systolic murmur
+peripheral edema
+interventricular septal hypertrophy
+autosomal dominant point mutation in the fibroblast growth factor receptor 3 
+achondroplasia
+adenocarcinoma
+trauma
+gouty arthritis
+gouty
+gouty arthritis
+gouty arthritis
+DMD
+dyslipidemia
+oculocutaneous albinism
+Hashimoto disease
+primary adrenal insufficiency
+Addison disease
+menorrhagia
+osteoarthritis
+eczema
+hysterectomy
+adenomyosis
+tremor
+tremor
+tremor
+tremor
+osteoporosis
+hyperlipidemia
+trisomy of chromosome 21
+Down syndrome
+Hemophilia type A
+Hemophilia type A
+lipoma
+hypertension
+hyperlipidemia
+type 2 diabetes mellitus
+AD
+Alzheimer
+Alzheimer disease
+hippocampal atrophy
+anaplastic astrocytoma
+anaplastic astrocytoma
+hypertension
+anaplastic astrocytoma
+LE edema
+pulmonary artery systolic hypertension
+coronary artery disease
+HTN hyperlipidemia
+aortic stenosis
+LE edema
+aortic stenosis
+aortic valve stenosis
+intraventricular hemorrhage
+PCOS
+Obesity
+cholecystitis
+Burkitt's Lymphoma
+primary cardiac lymphoma
+HTN
+Obesity
+HTN
+pericardial effusion
+Burkitt's lymphoma
+PCOS
+infertility
+Viral encephalitis
+meningitis
+meningitis
+CAD
+HTN
+HL
+DMII
+PVD
+PVD
+CP
+SOB
+diaphoresis
+orthopnea
+palpitations
+syncope
+presyncope
+bilateral carotid stenosis
+stenosis
+stenosis
+CAD
+CVA
+Bilateral carotid artery disease
+Anemia
+PVD
+Hypertension
+Diabetes
+Cataracts
+Thyroid nodule
+Colon polyps
+Proteinuria
+Arthritis
+ESRD
+HD
+peritoneal dialysis
+C diff infections
+Cdiff
+leukocytosis
+C diff
+leukocytosis
+C diff
+Hep C cirrhosis
+grade II esophageal varices
+gastritis
+hepatic encephalopathy
+cirrhosis
+HCV Cirrhosis
+Portal Gastropathy
+Grade II Esophageal varices
+HTN
+gastritis
+CLL
+large cell transformation
+lymphadenopathy
+lymphadenopathy
+lymphocytosis
+lymphadenopathy
+Richter's transformation
+intellectual disability
+CHF
+epilepsy
+Epilepsy
+CHF
+focal epilepsy
+depression
+mastocytosis
+tachycardia
+metastatic papillary thyroid cancer
+Papillary thyroid cancer
+thyroidectomy
+trachea
+laryngeal nerve
+dysphagia
+tumor
+Marfan's syndrome
+mitral valve prolapse
+Marfans Syndrome
+MVP
+mitral regurgitation
+Gastric reflux disease
+gestational diabetes mellitus
+Hypertension
+Obesity
+COPD
+OSA
+obesity hypoventilation syndrome
+dCHF
+hypoxia
+LE edema
+edema
+CAD
+CHF
+obesity hypoventilation syndrome
+obstructive sleep apnea
+DM2
+ventricular tachycardia
+hypothyroidism
+schizophrenia
+COPD
+Pneumona
+CVA
+urosepsis
+urosepsis
+UTIs
+Non-hodgkins Marginal Zone Lymphoma
+Bells Palsy
+BPH
+Hypertension
+Hepatitis C
+Cryoglobulinemia
+SLE
+Insulin Dependant Diabetic
+Fungal Esophagitis Stage IV
+Urinary Tract Infections-pseudomonas
+CAD
+bandemia
+pancreatic adenocarcinoma
+diverticulitis
+Coronary artery disease
+angioplasty
+Mitral valve prolapse
+Atrial fibrillation
+Hyperlipemia
+Hypertension
+Chronic kidney disease
+Hypothyroidism
+Anemia
+hypoxemia
+CHF
+ASD
+COPD
+Atrial septal defect
+Diastolic CHF
+Pulm HTN
+ASD
+COPD
+OSA
+mitral regurgitation
+Microcytic anemia
+Hypothyroidism
+Gallstone pancreatitis
+amyloidosis
+malaise
+edema
+myeloma
+ESRD
+hypercalcemia
+myeloma
+BPH
+CAD
+MI
+HLD
+HTN
+ventricular tachycardia
+syncope
+syncope
+ventricular arrhythmias
+syncope
+presyncope
+hirsutism
+acromegaly
+prognathism
+Hirsutism
+diaphoresis
+macroadenoma
+type 2 diabetes
+leukocytosis
+obstructive pancreatitis
+malaise
+leukocytosis
+asthma
+allergic rhinitis
+asthma
+breast carcinoma
+tumor
+hypercholesterolemia
+leukocytosis
+cholecystectomy
+HCV infection
+hepatocellular carcinoma
+chronic inflammation
+chronic viral hepatitis
+alcoholic liver disease
+hemochromatosis
+autoimmune hepatitis
+metabolic liver disease
+edema
+COPD
+BPH
+HTN
+PBH
+type 1 diabetes
+hyperglycemia
+diabetic ketoacidosis
+type 1 diabetes
+polyuria
+polydipsia
+polyphagia
+diabetes
+diabetic ketoacidosis
+hyperglycemia
+hirsutism
+Hashimoto's thyroiditis
+cervical cancer
+HPV 16
+colon cancer
+PCO
+myasthenia gravis, class IIa
+diplopia
+hypertension
+jaundice
+icteric
+neonatal jaundice
+Parkinson's disease
+tremors
+hypertension
+hypercholesterolemia
+dementia
+scoliosis
+scoliosis
+tuberculosis
+hypertension
+hyperlipidemia
+hypothyroidism
+dysarthria
+hemiplegia
+Turner syndrome
+Wegener's granulomatosis
+Acromegaly
+pituitary tumor
+acromegaly
+pituitary adenoma
+perforated appendicitis
+phlegmon
+jaundice
+pallor
+photophobia
+dysarthria
+Relapsing Remitting Multiple Sclerosis
+RRMS
+RRMS
+hypertension
+DM type 2
+Paget's Disease of Bone
+orthopnea
+arthralgia
+DM type 2
+HTN
+aspiration pneumonia
+Clostridium difficile
+Sickle cell disease
+splenomegaly
+DM
+hyperlipidemia
+MI
+segmented fungal hyphae
+UTI
+tremors
+tremor
+tremor
+Kayser-Fleischer' ring
+jaundice
+hepatosplenomegaly
+hypotonia
+Wilson disease
+hypertension
+leukocytosis
+edematous interstitial pancreatitis
+pancreatitis
+asthma
+asthma
+urinary retention
+breast cancer
+breast carcinoma
+tumor
+tumor
+CAD
+diabetes mellitus
+systolic murmur
+stenosis
+stenosis
+hypercholesterolemia
+leukocytosis
+HCV
+HBV
+HCV
+hepatocellular carcinoma
+chronic inflammation
+chronic viral hepatitis
+alcoholic liver disease
+hemochromatosis
+autoimmune hepatitis
+metabolic liver disease
+edema
+type 1 diabetes
+angina
+cardiomyopathy
+DM type 1
+Hashimoto disease
+HPV
+septicemia
+respiratory failure
+renal failure
+microangiopathic hemolytic anemia
+thrombocytopenia
+atypical hemolytic uremic syndrome
+MDD
+colon cancer
+psychologic problems
+PCO
+myasthenia gravis, class IIa
+diplopia
+Paget's disease of bone
+Paget's Disease of Bone
+jaundice
+icteric
+neonatal jaundice
+Parkinson's disease
+tremors
+Hoehn-Yahr Stage I
+hypertension
+hypercholesterolemia
+dementia

@@ -1,0 +1,27 @@
+The patient is a 55 year old man visiting his primary care physician for lower urinary tract symptoms including frequency, urgency, weak stream, incomplete emptying and intermittent flow for the past 9 months. Further evaluation revealed:
+IPSS score : 15
+Post-void residual: 70 mL
+Prostate volume (TRUS): 60 mL
+Prostate-specific antigen (PSA) level: 3.2 ng/mL
+10 mL/sec of maximum flow rate when urine volume was 130 mL
+He is otherwise healthy only using Vit D 1000 units daily. His recent blood chemistry (3 days ago) was normal: 
+Hgb: 13.5 g/dl
+WBC: 135000 /mm3
+Plt: 350000 /ml
+PT: 11 second
+PTT: 35 second
+INR: 0.9
+Creatinine: 0.5 mg/dl
+BUN: 10 mg/dl
+U/A:
+Color: yellow
+Appearance: cloudy
+PH: 5.3
+Specific gravity: 1.010
+Glc: 100
+Nitrite: negative
+Ketone: none
+Leukocyte esterase: negative
+RBC: negative
+WBC: 2 WBCs/hpf
+U/C: negative

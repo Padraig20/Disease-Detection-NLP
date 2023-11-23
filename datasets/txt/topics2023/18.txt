@@ -1,0 +1,1 @@
+The patient's breast cancer is at stage 2. The HER2 status is positive, while hormone receptors (PR and ER) are negative. The patient hasn't undergone prior chemotherapy, but has received prior radiotherapy. Mastectomy has not been performed previously. The patient's performance status is Karnofsky 70%.

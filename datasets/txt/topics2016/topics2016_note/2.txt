@@ -1,0 +1,55 @@
+Ms [**Known patient lastname 241**] is a [**Age over 90 2398**] year old woman with past medical history significant for hypertension, severe aortic stenosis, hyperlipidemia, arthroplasty.
+    .
+   Per the patient, she was standing and felt a snap of her right leg and fell to the ground. 
+   No head trauma or LOC. She was evaluated by orthopedics and transferred to
+   medicine for optimization of her cardiac status. 
+   
+   Review of systems:
+   Ear, Nose, Throat: Dry mouth
+   Cardiovascular: Edema, Orthopnea
+   Respiratory: Dyspnea
+   Flowsheet Data as of [**3294-3-6**] 10:33 PM
+   Vital Signs
+   Hemodynamic monitoring
+   Fluid Balance 24 hours Since [**96**] AM
+   Tmax: 37.5 C (99.5)
+   Tcurrent: 37.5 C (99.5)
+   HR: 102 (93 - 102) bpm
+   BP: 117/54(70) {117/54(70) - 117/54(70)} mmHg
+   RR: 24 (15 - 24) insp/min
+   SpO2: 100%
+   Heart rhythm: ST (Sinus Tachycardia)
+           
+   .
+   -- Clarify She appears comfortable with adequate pain
+   control with prn morphine. Given her tight valvular stenosis,
+   she is high risk for general anesthesia.
+   - would start standing tylenol 1g q8
+   - continue morphine IV prn for breakthrough
+   - plan for OR tomorrow am per ortho pending optimization of her cardiac
+   function, and improvement in renal function
+   .
+   # CAD: No clear documentation, however given age calcific
+   atherosclerosis is highly likely
+   -- continue statin
+   -- Hold beta blocker for now
+   -- hold aspirin in perioperative period
+   .
+   # ATRIAL FIBRILLATION: In setting of acute pain and peri-op. Will need
+ to monitor as pt with high CHADS score, however in periop period would
+   not be able to have systemic anticoagulation
+   -- Rate control with beta blocker once stable
+   -- If unstable, would use esmolol first, cardiovert last option.
+   .
+   # HTN: Better controlled on floor. Good BP control essential for
+   preventing flash pulmonary edema in setting of AS.
+   - continue metoprolol, as above
+   - continue to monitor BP and consider adding another [**Doctor Last Name **] such
+   as amlodipine 5mg daily if BP sustains above SBP 150s
+   .
+   # Hyperlipidemia
+   - continue simvastatin 40mg PO daily
+   .
+   # FEN/GI: Low sodium diet, replete lytes PRN
+   .
+   # CODE: Confirmed DNR/DNI

@@ -1,0 +1,13 @@
+Patient A is a 30-year-old male who was admitted to the hospital after 10 days of cough, profuse nocturnal sweating and loss of appetite. He had traveled to India 1 months ago and has not any positive history of TB vaccination. He is a previously healthy man, working as an engineer in a high tech company. He doesn't smoke o use any illicit drugs. He was febrile (38 c) with heart rate of 115 b/min, respiratory rate of 22, BP of 125/75 mmHg and O2 sat of 97%. Chest X-ray showed infiltrate in the middle of left lung with diameter of 1.8 cm with signs of cavitation. The sputum smear revealed positive sputum culture for Mycobacterium tuberculosis which are sensitive of the first-line TB drugs (isoniazid, streptomycin, rifampicin and ethambutol). Lab study is reported bellow:
+Hgb: 13 g/dl
+WBC: 14000 /mm3
+Plt: 300000 /ml
+AST: 13 U/L
+ALT: 15 U/L
+Alk P: 53 U/L
+Bill total: 0.6 mg/dl
+Na: 137 mEq/l
+K: 4 mEq/l
+Creatinine: 0.5 mg/dl
+BUN: 10 mg/dl
+ESR: 120 mm/hr

@@ -1,0 +1,6 @@
+The patient is a 60-year-old Spanish man presenting with shortness of breath about a day before. The symptoms began acutely and progressively worsened. He is a known case of COPD since 2 years ago. The spirometry revealed post-bronchodilator FEV1/FVC = 60% of predicted values. He smokes 20 cigarette per day. His past medical history is remarkable for BPH and he is using Flomax for that. His family history is positive for HTN in his brother. His medication includes Duo-Neb inhaled q4 hr PRN, Vit D3 1000 units per day and Flomax for his PBH. He is an obese man who is acutely ill but oriented and conscious. The vital signs are as bellow:
+BP: 135/80
+RR: 25/min
+HR: 75 bpm
+BMI: 40
+O2sat: 90%

@@ -1,0 +1,36 @@
+Ms [**Known patient lastname 21112**] is a 43 year old woman with history of transverse
+   myelitis leading to paraplegia, depression, frequent pressure
+   ulcers, presenting with chills and reporting she felt "as if
+   dying". Upon presentation, she denied any shortness of breath,
+   nausea, vomiting, but did report diarrhea with two loose bowel
+   movements per day. Patient reported that she had a fallout with
+   her VNA and has not had any professional wound care since early
+   [**Month (only) 51**].
+   
+   Patient has a long history of psychiatric and behavioral
+   problems. [**Name (NI) **] [**Name2 (NI) **] review, patient was dismissed from the [**Company 110**]
+   practice due to abusive behavior against staff. She does not
+   have a primary care provider at this time.
+   
+   In the ED: Temp 98.9  HR: 90  BP: 109/62  RR: 16  O2 Sat: 97%
+   RA. Patient initially thought to be agitated yelling her EMS
+   transporters were "white devils". Patient kept in observation
+   area, although with rigors, complaining of feeling cold and back
+   pain. Patient rolled and found to have a stage IV decubitus
+   ulcer on coccyx and buttocks, heels. 
+   
+   ==================
+     ADMISSION LABS
+   ==================
+   [**3266-8-26**] 01:50PM BLOOD WBC-10.3 RBC-4.98 Hgb-8.1* Hct-30.7*
+   MCV-62* MCH-16.2*# MCHC-26.3* RDW-17.5* Plt Ct-914*
+   [**3266-8-26**] 01:50PM BLOOD Neuts-89.0* Bands-0 Lymphs-9.9*
+   Monos-0.8* Eos-0.3 Baso-0.1
+   [**3266-8-26**] 01:50PM BLOOD PT-15.6* PTT-32.8 INR(PT)-1.4*
+   [**3266-8-26**] 01:50PM BLOOD Glucose-99 UreaN-10 Creat-0.6 Na-135
+   K-4.9 Cl-102 HCO3-18* AnGap-20
+   [**3266-8-26**] 01:50PM BLOOD Calcium-8.5 Phos-3.2 Mg-2.3
+   [**3266-8-26**] 04:00PM BLOOD Lipase-17
+   [**3266-8-26**] 01:56PM BLOOD Lactate-6.3*
+   [**3266-8-26**] 04:12PM BLOOD Lactate-2.9*
+   [**3266-8-26**] 06:17PM BLOOD Lactate-1.6

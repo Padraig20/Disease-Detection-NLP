@@ -1,0 +1,28 @@
+Ms. [**Known patient lastname **] is a G2P0010 26 yo F, now estimated to 10 weeks pregnant. Pt has 4yr hx of IDDM. LMP is not known but was sometime in [**Month (only) **].
+   On [**3243-11-10**], the patient began feeling achy and congested. She
+   had received a flu shot about 1 week prior. She continued to
+   feel poorly on [**3243-11-11**], and developed hyperemesis. She was seen
+   in the ED (but not admitted) at [**Hospital3 **], where she was
+   given IVF, Reglan and Tylenol and she was found to have a
+   positive pregnancy test. Today, she returned to the ED
+   with worsening of symptoms. She was admitted to the OB service
+   and given IVF and Reglan. Of note, her labwork 
+   demonstrates a blood glucose of 160, bicarbonate of 11, beta-hCG
+   of 3373 and ketones in her urine. Her family noted
+   that she was breathing rapidly and was quite somnolent. 
+   She appears to be in respiratory distress. 
+   .
+   The falling beta-HCG and trans-abdominal ultrasound indicate
+   intra-uterine fetal demise.
+   
+   Medications on Admission:
+   Lantus 65 units qAM
+   Novolog SSI
+   Cortef 3mg qAM, 1mg qHS
+   .
+   Meds on Transfer:
+   Levophed
+   Dopamine
+   Solumedrol 80mg IV
+   Amiodarone load
+   Insulin in D10

@@ -1,0 +1,23 @@
+This is a [**Age over 90 **] year old female with hx recent PE/DVT, atrial
+   fibrillation, CAD who is transfered from  [**Hospital3 915**] Hospital for
+   ERCP. She has had multiple admissions to [**Hospital3 915**] this past month,
+   most recently on [**2963-11-24**]. In early [**Month (only) 776**], she presented with back
+   pain and shortness of breath. She was found to have bilateral PE's and
+   new afib and started on coumadin. Her HCT dropped slightly, requiring
+   blood transfusion, with guaic positive stools. She was discharged and
+   returned with abdominal cramping and black stools. She was found to
+   have a HCT drop from 32 to 21. She was given vit K, given a blood
+   transfusion and started on protonix. She received an IVF filter and
+   EGD.  EGD showed a small gastric and duodenal ulcer (healing),
+   esophageal stricture, no active bleeding.  She also had an abdominal
+   CT  demonstrating a distended gallbladder with gallstones and biliary
+   obstruction with several CBD stones.
+
+   Since 12 AM
+   Tmax: 38 C (100.4
+   Tcurrent: 37.4 C (99.4
+   HR: 92 (83 - 94) bpm
+   BP: 89/32(54) {89/32(54) - 94/37(60)} mmHg
+   RR: 23 (23 - 33) insp/min
+   SpO2: 100%
+   Heart rhythm: SR (Sinus Rhythm)

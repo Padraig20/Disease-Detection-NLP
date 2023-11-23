@@ -1,0 +1,15 @@
+The patient is a 3-day-old female infant with jaundice that started one day ago. She was born at 34w of gestation and kept in an incubator due to her gestational age. Vital signs were reported as: axillary temperature: 36.3°C, heart rate: 154 beats/min, respiratory rate: 37 breaths/min, and blood pressure: 65/33 mm Hg. Her weight is 2.1 kg, length is 45 cm, and head circumference 32 cm. She presents with yellow sclera and icteric body. Her liver and spleen are normal to palpation.
+Laboratory results are as follows: 
+Serum total bilirubin: 21.02 mg/dL
+Direct bilirubin of 2.04 mg/dL
+AST: 37 U/L
+ALT: 20 U/L
+GGT: 745 U/L
+Alkaline phosphatase: 531 U/L
+Creatinine: 0.3 mg/dL
+Urea: 29 mg/dL
+Na: 147 mEq/L
+K: 4.5 mEq/L
+CRP: 3 mg/L
+Complete blood cell count within the normal range.
+She is diagnosed with neonatal jaundice that may require phototherapy.

@@ -1,0 +1,7 @@
+The patient is a 25-year-old man with type 1 diabetes confirmed with molecular analysis 7 years ago. He presents to the clinic with shortness of breath and fatigue during activities. He claims mild dyspnea after climbing 3 floors, no dyspnea at rest and no angina (New York Heart Association class 2). He is diagnosed with cardiomyopathy that will be treated with ACE inhibitors and Beta blockers. His takes 70/30 Insulin and vitamin D supplements. His past medical history is not significant for any other medical issues. His family history is positive for DM type 1 in his uncle and his grandfather. His lab study is as bellow:
+FBS: 100 mg/dl
+HbA1c: 6.5%
+Cholesterol: 190 mg/dl
+TG: 140 mg/dl
+LDL: 125 mg/dl
+HDL: 40 mg/dl

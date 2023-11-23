@@ -1,0 +1,11 @@
+A 15-year-old boy with mild intellectual disability is brought to the office by his parents for a routine physical examination.  The boy is going to a school for students with learning disabilities.  The patient was adopted, and his immunizations are up to date.  Review of the patient's medical records is notable for cytogenetic studies that showed a small gap near the tip of the long arm of the X chromosome, which is consistent with fragile X syndrome, an X-linked disorder. The defect is an unstable expansion of trinucleotide repeats (CGG) in the fragile X mental retardation 1 (FMR1) gene, located on the long arm of the X chromosome. He is not using any medications and vital signs are within normal levels. His blood chemistry analysis as bellow:
+Blood Chemistry Value      Normal Range     Patient Value
+Glucose                    90-120 mg/dl     95 mg/dl
+BUN (Blood Urea Nitrogen)  7-24 mg/dl       10 mg/dl
+Creatinine                 0.7-1.4 mg/dl    0.8 mg/dl
+Calcium                    8.5-10.5 mg/dl   9 mg/dl
+Sodium                     134-143 mEq/L    135 mEq/L
+Potassium                  3.5-4.5 mEq/L    3.7 mEq/L
+Chloride                   95-108 mEq/L     98 mEq/L
+CO2                        20-30 mEq/L      25 mEq/L
+Blood pH                   7.38-7.42        7. 39
