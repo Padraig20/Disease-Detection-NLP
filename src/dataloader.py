@@ -5,24 +5,22 @@ import re
 from torch import nn
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-from transformers import BertModel
-#bert = BertModel.from_pretrained('bert-base-uncased')
 
 from transformers import BertTokenizer,BertForTokenClassification
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
 
-
 label_to_ids = {
- 'B-MEDCOND': 1,
- 'I-MEDCOND': 2,
- 'O': 0}
+    'B-MEDCOND': 1,
+    'I-MEDCOND': 2,
+    'O': 0
+}
 
 ids_to_label = {
- 1:'B-MEDCOND',
- 2:'I-MEDCOND',
- 0:'O'}
+    1:'B-MEDCOND',
+    2:'I-MEDCOND',
+    0:'O'
+}
 
 max_tokens = 128
 
@@ -63,15 +61,14 @@ class Custom_Dataset(Dataset):
         sen_code = tokenizer.encode_plus(t_sen,
             add_special_tokens=True, # adds [CLS] and [SEP]
             max_length = max_tokens, # maximum tokens of a sentence
-            pad_to_max_length=True, # adds [PAD]s
+            padding='max_length',
             return_attention_mask=True, # generates the attention mask
             truncation = True
-#             return_tensors = 'pt'
             )
 
 
         #shift labels (due to [CLS] and [SEP])
-        labels = [-1]*max_tokens
+        labels = [-100]*max_tokens
         for i, tok in enumerate(t_labl):
             if tok != None and i < max_tokens-1:
                 labels[i+1]=label_to_ids.get(tok)
@@ -82,18 +79,14 @@ class Custom_Dataset(Dataset):
         return item
 
 def load_dataset():
-    data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")
+    data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")#.head()
 
-    train_data = Custom_Dataset(data)
+    train_data = data.sample((int) (len(data)*0.8), random_state=7).reset_index(drop=True)
+    test_data = data.drop(train_data.index).reset_index(drop=True)
 
-    return train_data
+    train_dataset = Custom_Dataset(train_data)
+    test_dataset = Custom_Dataset(test_data)
+
+    return train_dataset, test_dataset
 
     #https://www.kaggle.com/code/mdmustafijurrahman/bert-named-entity-recognition-ner-data
-
-    #train_data[2]
-    #print(train_data[2]['input_ids'].detach().numpy())
-    #print(tokenizer.convert_ids_to_tokens(train_data[2]['input_ids'].detach().numpy()))
-
-    #print('#####')
-    #for i in train_data[2]['entity'].detach().numpy():
-    #    print(ids_to_label.get(i))
