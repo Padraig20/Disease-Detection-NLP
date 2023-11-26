@@ -11,7 +11,7 @@ class BertNER(nn.Module):
         self.pretrained = BertForTokenClassification.from_pretrained("bert-base-uncased", num_labels = tokens_dim)
 
     def forward(self, input_ids, attention_mask, labels = None): #labels for loss calculation
-        if labels == None: #no labels at inference time
+        if labels == None:
             out = self.pretrained(input_ids = input_ids, attention_mask = attention_mask )
             return out
         out = self.pretrained(input_ids = input_ids, attention_mask = attention_mask , labels = labels)
