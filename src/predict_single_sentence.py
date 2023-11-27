@@ -1,5 +1,5 @@
 from utils.dataloader import Dataloader
-from utils.BertArchitecture import BertNER
+from utils.BertArchitecture import BertNER, BioBertNER
 from utils.metric_tracking import MetricsTracking
 
 import torch
@@ -19,6 +19,9 @@ parser.add_argument('-l', '--length', type=bool, default=128,
                     help='Choose the maximum length of the model\'s input layer.')
 parser.add_argument('-m', '--model', type=str, default='../models/bert_medcond.pth',
                     help='Choose the directory of the model to be used for prediction.')
+parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
+                    help='Choose whether the given model has been trained on BioBERT or not. \
+                    Careful: It will not work if wrongly specified!')
 parser.add_argument('sentence', type=str, help='Write your input sentence, preferrably an admission note!')
 
 args = parser.parse_args()
@@ -26,18 +29,23 @@ max_length = args.length
 model_path = args.model
 sentence = args.sentence
 
+if not args.transfer_learning:
+    model = BertNER(3)
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
+else:
+    model = BioBertNER(3)
+    tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
+
 ids_to_label = {
     1:'B-MEDCOND',
     2:'I-MEDCOND',
     0:'O'
     }
 
-model = BertNER(3)
 model.load_state_dict(torch.load(model_path))
 model.eval()
 
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
 
 t_sen = tokenizer.tokenize(sentence)
 

@@ -22,7 +22,8 @@ class Dataloader():
 
         if self.transfer_learning:
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
-            data['entities'] = data['entities'].apply(lambda x: x.replace('B-MEDCOND', 'B-DISEASE').replace('I-MEDCOND', 'I-DISEASE'))
+            data['entity'] = data['entity'].apply(lambda x: x.replace('B-MEDCOND', 'B-DISEASE'))
+            data['entity'] = data['entity'].apply(lambda x: x.replace('I-MEDCOND', 'I-DISEASE'))
         else:
             tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
             tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
@@ -38,7 +39,8 @@ class Dataloader():
     def load_custom(self, data):
         if self.transfer_learning:
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
-            data['entities'] = data['entities'].apply(lambda x: x.replace('B-MEDCOND', 'B-DISEASE').replace('I-MEDCOND', 'I-DISEASE'))
+            data['entity'] = data['entity'].apply(lambda x: x.replace('B-MEDCOND', 'B-DISEASE'))
+            data['entity'] = data['entity'].apply(lambda x: x.replace('I-MEDCOND', 'I-DISEASE'))
         else:
             tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
             tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
@@ -106,4 +108,3 @@ class Custom_Dataset(Dataset):
         item['entity'] = torch.as_tensor(labels)
 
         return item
-

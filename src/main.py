@@ -1,5 +1,6 @@
 from utils.dataloader import Dataloader
 from utils.BertArchitecture import BertNER
+from utils.BertArchitecture import BioBertNER
 from utils.metric_tracking import MetricsTracking
 
 import torch
@@ -67,7 +68,7 @@ def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs
         train_results = train_metrics.return_avg_metrics(len(train_dataloader))
         eval_results = eval_metrics.return_avg_metrics(len(eval_dataloader))
 
-        print(f"Epoch {epoch} of {epochs} finished!")
+        print(f"Epoch {epoch+1} of {epochs} finished!")
         print(f"TRAIN\nMetrics {train_results}\n")
         print(f"VALIDATION\nMetrics {eval_results}\n")
 
@@ -80,7 +81,7 @@ import argparse
 parser = argparse.ArgumentParser(
         description='This class is used to train a transformer-based model on admission notes, labelled with <3 by Patrick.')
 
-parser.add_argument('-s', '--save', type=str, default="",
+parser.add_argument('-o', '--output', type=str, default="",
                     help='Choose where to save the model after training. Saving is optional.')
 parser.add_argument('-lr', '--learning_rate', type=float, default=1e-2,
                     help='Choose the learning rate of the model.')
@@ -88,24 +89,41 @@ parser.add_argument('-b', '--batch_size', type=int, default=16,
                     help='Choose the batch size of the model.')
 parser.add_argument('-e', '--epochs', type=int, default=5,
                     help='Choose the epochs of the model.')
+parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
+                    help='Choose the epochs of the model.')
 
 args = parser.parse_args()
 
-model = BertNER(3) #O, B-MEDCOND, I-MEDCOND -> 3 entities
+if not args.transfer_learning:
+    model = BertNER(3) #O, B-MEDCOND, I-MEDCOND -> 3 entities
 
-label_to_ids = {
-    'B-MEDCOND': 1,
-    'I-MEDCOND': 2,
-    'O': 0
-    }
+    label_to_ids = {
+        'B-MEDCOND': 1,
+        'I-MEDCOND': 2,
+        'O': 0
+        }
 
-ids_to_label = {
-    1:'B-MEDCOND',
-    2:'I-MEDCOND',
-    0:'O'
-    }
+    ids_to_label = {
+        1:'B-MEDCOND',
+        2:'I-MEDCOND',
+        0:'O'
+        }
+else:
+    model = BioBertNER(3)
 
-dataloader = Dataloader(label_to_ids, ids_to_label)
+    label_to_ids = {
+        'B-DISEASE': 1,
+        'I-DISEASE': 2,
+        'O': 0
+        }
+
+    ids_to_label = {
+        1:'B-DISEASE',
+        2:'I-DISEASE',
+        0:'O'
+        }
+
+dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning)
 
 train, test = dataloader.load_dataset()
 
@@ -123,6 +141,6 @@ parameters = {
 train_loop(**parameters)
 
 #save model if wanted
-if args.save:
-    torch.save(model.state_dict(), args.save)
-    print(f"Model has successfully been saved at {args.save}!")
+if args.output:
+    torch.save(model.state_dict(), args.output)
+    print(f"Model has successfully been saved at {args.output}!")
