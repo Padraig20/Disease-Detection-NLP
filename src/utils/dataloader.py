@@ -16,7 +16,7 @@ class Dataloader():
         self.transfer_learning = transfer_learning
 
     def load_dataset(self, full = False):
-        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|").head(20)
+        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")
 
         if self.transfer_learning:
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
