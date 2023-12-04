@@ -1,0 +1,11 @@
+matplotlib==3.7.1
+nltk==3.8.1
+numpy==1.23.5
+pandas==1.5.3
+scikit_learn==1.2.2
+seaborn==0.13.0
+torch==2.0.1
+tqdm==4.64.1
+tqdm==4.66.1
+transformers==4.30.1
+wordcloud==1.9.2

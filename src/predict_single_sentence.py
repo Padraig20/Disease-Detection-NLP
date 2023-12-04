@@ -38,9 +38,9 @@ else:
     tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
 
 ids_to_label = {
-    1:'B-MEDCOND',
-    2:'I-MEDCOND',
-    0:'O'
+    0:'B-MEDCOND',
+    1:'I-MEDCOND',
+    2:'O'
     }
 
 model.load_state_dict(torch.load(model_path))

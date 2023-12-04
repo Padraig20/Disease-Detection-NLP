@@ -2,77 +2,17 @@ from utils.dataloader import Dataloader
 from utils.BertArchitecture import BertNER
 from utils.BertArchitecture import BioBertNER
 from utils.metric_tracking import MetricsTracking
+from utils.training import train_loop
 
 import torch
 from torch.optim import SGD
+from torch.optim import Adam
 from torch.utils.data import DataLoader
 
 import numpy as np
 import pandas as pd
 
 from tqdm import tqdm
-
-def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs):
-
-    train_dataloader = DataLoader(train_dataset, batch_size = batch_size, shuffle = False)
-    eval_dataloader = DataLoader(eval_dataset, batch_size = batch_size, shuffle = False)
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = model.to(device)
-
-    #training
-    for epoch in range(epochs) :
-
-        train_metrics = MetricsTracking()
-
-        model.train() #train mode
-
-        for train_data in tqdm(train_dataloader):
-
-            train_label = train_data['entity'].to(device)
-            mask = train_data['attention_mask'].squeeze(1).to(device)
-            input_id = train_data['input_ids'].squeeze(1).to(device)
-
-            optimizer.zero_grad()
-
-            output = model(input_id, mask, train_label)
-            loss, logits = output.loss, output.logits
-            predictions = logits.argmax(dim=-1)
-
-            #compute metrics
-            train_metrics.update(predictions, train_label, loss.item())
-
-            loss.backward()
-            optimizer.step()
-
-
-        model.eval() #evaluation mode
-
-        eval_metrics = MetricsTracking()
-
-        with torch.no_grad():
-
-            for eval_data in eval_dataloader:
-
-                eval_label = eval_data['entity'].to(device)
-                mask = eval_data['attention_mask'].squeeze(1).to(device)
-                input_id = eval_data['input_ids'].squeeze(1).to(device)
-
-                output = model(input_id, mask, eval_label)
-                loss, logits = output.loss, output.logits
-
-                predictions = logits.argmax(dim=-1)
-
-                eval_metrics.update(predictions, eval_label, loss.item())
-
-        train_results = train_metrics.return_avg_metrics(len(train_dataloader))
-        eval_results = eval_metrics.return_avg_metrics(len(eval_dataloader))
-
-        print(f"Epoch {epoch+1} of {epochs} finished!")
-        print(f"TRAIN\nMetrics {train_results}\n")
-        print(f"VALIDATION\nMetrics {eval_results}\n")
-
-
 
 #-------MAIN-------#
 
@@ -89,45 +29,56 @@ parser.add_argument('-b', '--batch_size', type=int, default=16,
                     help='Choose the batch size of the model.')
 parser.add_argument('-e', '--epochs', type=int, default=5,
                     help='Choose the epochs of the model.')
+parser.add_argument('-opt', '--optimizer', type=str, default='SGD',
+                    help='Choose the optimizer to be used for the model: SDG | Adam')
 parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
-                    help='Choose the epochs of the model.')
+                    help='Choose whether the BioBERT model should be used as baseline or not.')
+parser.add_argument('-v', '--verbose', type=bool, default=False,
+                    help='Choose whether the model should be evaluated after each epoch or only after the training.')
 
 args = parser.parse_args()
 
 if not args.transfer_learning:
+    print("Training base BERT model...")
     model = BertNER(3) #O, B-MEDCOND, I-MEDCOND -> 3 entities
 
     label_to_ids = {
-        'B-MEDCOND': 1,
-        'I-MEDCOND': 2,
-        'O': 0
+        'B-MEDCOND': 0,
+        'I-MEDCOND': 1,
+        'O': 2
         }
 
     ids_to_label = {
-        1:'B-MEDCOND',
-        2:'I-MEDCOND',
-        0:'O'
+        0:'B-MEDCOND',
+        1:'I-MEDCOND',
+        2:'O'
         }
 else:
+    print("Training BERT model based on BioBERT diseases...")
     model = BioBertNER(3)
 
     label_to_ids = {
-        'B-DISEASE': 1,
-        'I-DISEASE': 2,
-        'O': 0
+        'B-DISEASE': 0,
+        'I-DISEASE': 1,
+        'O': 2
         }
 
     ids_to_label = {
-        1:'B-DISEASE',
-        2:'I-DISEASE',
-        0:'O'
+        0:'B-DISEASE',
+        1:'I-DISEASE',
+        2:'O'
         }
 
 dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning)
 
 train, test = dataloader.load_dataset()
 
-optimizer = SGD(model.parameters(), lr=args.learning_rate, momentum = 0.9)
+if args.optimizer == 'SGD':
+    print("Using SGD optimizer...")
+    optimizer = SGD(model.parameters(), lr=args.learning_rate, momentum = 0.9)
+else:
+    print("Using Adam optimizer...")
+    optimizer = Adam(model.parameters(), lr=args.learning_rate)
 
 parameters = {
     "model": model,
@@ -138,7 +89,7 @@ parameters = {
     "epochs" : args.epochs
 }
 
-train_loop(**parameters)
+train_loop(**parameters, verbose=args.verbose)
 
 #save model if wanted
 if args.output:
