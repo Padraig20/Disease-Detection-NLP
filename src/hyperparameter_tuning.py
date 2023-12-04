@@ -80,16 +80,10 @@ args = parser.parse_args()
 
 #-----hyperparameter grids-----#
 
-#batch_sizes = [8,16,32]
-#learning_rates = [0.1, 0.01, 0.001, 0.0001]
-#optimizers = ['SGD', 'Adam']
-#epochs = [5, 10]
-#max_tokens = 128
-
-batch_sizes = [8]
-learning_rates = [0.1]
+batch_sizes = [8,16,32]
+learning_rates = [0.1, 0.01, 0.001, 0.0001]
 optimizers = ['SGD', 'Adam']
-epochs = [1]
+epochs = [5, 10]
 max_tokens = 128
 
 label_to_ids, ids_to_label = get_label_descriptions(args.transfer_learning)
