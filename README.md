@@ -149,3 +149,24 @@ I have decided for wordclouds and word-frequency tables to get an overlook over 
 **Word-Frequency Table for medical conditions**
 
 ![wordfreq_entities](https://github.com/Padraig20/Applied-Deep-Learning-VU/assets/111874815/f19901a2-bbc4-4dbb-895d-3609709da594)
+
+## Metrics
+
+For this task (named entity recognition), we want both high precision and high recall. The precision measures the percentage of the model's predicted entities that are correct. High precision indicates a low false positive rate, which is important in medical application, as a means to avoid false alarms. On the other hand, recall measures the percentage of actual entities that the model correcly identified. High recall is important in medical NER, to ensure that no critical information is missed.
+
+The logical conclusion is using the harmoic mean of both, which is the f1 score. It provides a balance between precision and recall. An ideal model will have both high precision and high recall, leading to a high f1-score - this is often times the primary metric for NER tasks, and this is the metric we will focus on during hyperparameter-tuning.
+
+Using ambiguous parameters with SGD already provided great results, with an f1-score of ~0.85. I believe that with proper hyperparameter tuning we can exceed 0.9. The goal would be an f1-score of at least 0.92.
+
+## Observations during Hyperparameter-Tuning
+
+- A higher learning rate leads to worse results. (lr: 0.1, f1: ~0.3)
+- The Adam optimizer performs poorly in comparison to SGD with Momentum
+- The f1-score does no longer significantly change/gets worse after ~5 epochs.
+- Too little learning rate leads to worse results. (lr: 0.0001, f1: ~0.3)
+- Slightly higher rate reads to better results (lr: 0.001, f1: ~0.5)
+- Higher batch size leads to slightly worse f1 score ({batch size: 16, f1: 0.92} -> {batch size: 32, f1: 0.83}) 
+
+Currently best parameters:
+
+{'batch_size': 8, 'learning_rate': 0.01, 'epochs': 5, 'optimizer': 'SGD', 'max_tokens': 128} -> 0.93
