@@ -51,10 +51,10 @@ t_sen = tokenizer.tokenize(sentence)
 
 sen_code = tokenizer.encode_plus(sentence,
     return_tensors='pt',
-    add_special_tokens=True, # adds [CLS] and [SEP]
-    max_length = max_length, # maximum tokens of a sentence
+    add_special_tokens=True,
+    max_length = max_length,
     padding='max_length',
-    return_attention_mask=True, # generates the attention mask
+    return_attention_mask=True,
     truncation = True
     )
 inputs = {key: torch.as_tensor(val) for key, val in sen_code.items()}

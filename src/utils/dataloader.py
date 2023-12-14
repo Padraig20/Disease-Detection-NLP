@@ -8,6 +8,10 @@ from torch.utils.data import DataLoader
 from transformers import BertTokenizer,BertForTokenClassification
 
 class Dataloader():
+    """
+    Dataloader used for loading the dataset used in this project. Also provides a framework for automatic
+    tokenization of the data.
+    """
 
     def __init__(self, label_to_ids, ids_to_label, transfer_learning=False, max_tokens=128):
         self.label_to_ids = label_to_ids
@@ -16,7 +20,22 @@ class Dataloader():
         self.transfer_learning = transfer_learning
 
     def load_dataset(self, full = False):
-        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")
+        """
+        Loads the dataset and automatically initialized a tokenizer for the Custom_Dataset initialization.
+
+        Parameters:
+        full (bool): Whether the function should return the whole dataset or not - will return a train-test split
+                     according to the Pareto principle (80:20).
+
+        Returns:
+        if full:
+            dataset (Custom_Dataset): the full dataset in one.
+        else:
+            tuple:
+                - train_dataset (Custom_Dataset): Dataset used for training.
+                - test_dataset (Custom_Dataset): Dataset sued for testing.
+        """
+        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")#.head(20)
 
         if self.transfer_learning:
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
@@ -39,6 +58,16 @@ class Dataloader():
             return dataset
 
     def load_custom(self, data):
+        """
+        Loads the dataset, but with entities swapped from MEDCOND to DISEASE (if transfer learning
+        is enabled).
+
+        Parameters:
+        data (dataframe): Data extracted from csv file.
+
+        Returns:
+        dataset (Custom_Dataset): Dataset changed accordingly.
+        """
         if self.transfer_learning:
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
             data['entity'] = data['entity'].apply(lambda x: x.replace('B-MEDCOND', 'B-DISEASE'))
@@ -49,12 +78,27 @@ class Dataloader():
         dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label)
         return dataset
 
-        #https://www.kaggle.com/code/mdmustafijurrahman/bert-named-entity-recognition-ner-data
-
     def convert_id_to_label(self, ids):
         return [self.ids_to_label.get(x) for x in ids.numpy()[0]]
 
 def tokenize_and_preserve_labels(sentence, text_labels, tokenizer, label_to_ids, ids_to_label, max_tokens):
+    """
+    Tokenizes each word separately. This may take longer, but increases accuracy. Preserves the labels
+    of each word, adhereing to B and I prefixes.
+
+    Parameters:
+    sentence (string): Sentence to be tokenized.
+    text_labels (numpy.array): Contains the labels of the sentence.
+    tokenizer (BertTokenizer): Tokenizer used for tokenizing sentences.
+    label_to_ids (dict): Dictionary containing label-id mappings.
+    ids_to_label (dict): Dictionary containing id-label mappings.
+    max_tokens (int): The maximum tokens allowed (input size of BERT model).
+
+    Returns:
+        tuple:
+            - tokenized_sentence (numpy.array): Array containing all tokens of the give sentence.
+            - labels (numpy.array): Array containing the corresponding labels of the tokens.
+    """
     tokenized_sentence = []
     labels = []
 
@@ -76,6 +120,9 @@ def tokenize_and_preserve_labels(sentence, text_labels, tokenizer, label_to_ids,
     return tokenized_sentence, labels
 
 class Custom_Dataset(Dataset):
+    """
+    Dataset used for loading and tokenizing sentences on-the-fly.
+    """
 
     def __init__(self, data, tokenizer, label_to_ids, ids_to_label, max_tokens=128):
         self.data = data
@@ -88,6 +135,12 @@ class Custom_Dataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, idx):
+        """
+        Takes the current sentence with its labels and tokenizes it on-the-fly.
+
+        Returns:
+        item (torch.tensor): Tensor which can be fed into model.
+        """
         sentence = re.findall(r"\w+|\w+(?='s)|'s|['\".,!?;]", self.data['text'][idx].strip(), re.UNICODE)
         word_labels = self.data['entity'][idx].split(" ")
         t_sen, t_labl = tokenize_and_preserve_labels(sentence, word_labels, self.tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
@@ -100,9 +153,8 @@ class Custom_Dataset(Dataset):
             truncation = True
             )
 
-
         #shift labels (due to [CLS] and [SEP])
-        labels = [-100]*self.max_tokens
+        labels = [-100]*self.max_tokens #-100 is ignore token
         for i, tok in enumerate(t_labl):
             if tok != None and i < self.max_tokens-1:
                 labels[i+1]=self.label_to_ids.get(tok)
