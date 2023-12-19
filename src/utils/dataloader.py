@@ -35,7 +35,7 @@ class Dataloader():
                 - train_dataset (Custom_Dataset): Dataset used for training.
                 - test_dataset (Custom_Dataset): Dataset sued for testing.
         """
-        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")#.head(20)
+        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")
 
         if self.transfer_learning:
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')

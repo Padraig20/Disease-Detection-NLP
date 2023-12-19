@@ -14,11 +14,11 @@ class MetricsTracking():
 
     def update(self, predictions, labels, loss, ignore_token=-100):
         """
-        Updates the current metrics. Takes into account which tokens to ignore during evaluation (e.g. [¢LS]).
+        Updates the current metrics. Takes into account which tokens to ignore during evaluation (e.g. [CLS]).
 
         Parameters:
-        predictions (numpy.array): Array containing the predictions of the model.
-        labels (numpy.array): Array containing the ground truth.
+        predictions (torch.tensor): Array containing the predictions of the model.
+        labels (torch.tensor): Array containing the ground truth.
         loss (float): Loss of the model.
         ignore_token (int): Specifies which token to ignore - -100 in this project's architecture.
         """
