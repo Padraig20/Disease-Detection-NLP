@@ -169,4 +169,27 @@ Using ambiguous parameters with SGD already provided great results, with an f1-s
 
 Currently best parameters:
 
-{'batch_size': 8, 'learning_rate': 0.01, 'epochs': 5, 'optimizer': 'SGD', 'max_tokens': 128} -> 0.93
+{'batch_size': 8, 'learning_rate': 0.01, 'epochs': 5, 'optimizer': 'SGD', 'max_tokens': 128} -> 0.93 (with base BERT)
+
+## Actual Amount of Time Spent
+
+- **requirements engineering**
+*Time Planned*: 5h
+*Time Spent*: 4h
+*Notes*: Thanks to a colleague, finding appropriate tools for data annotation was easy.
+- **capturing and annotating data**
+*Time Planned*: 25h
+*Time Spent*: 35h
+*Notes*: Data Annotation was way harder than I anticipated, vastly due to the very complicated medical lingo and unclearly defined differences between symptoms and medical conditions.
+- **describing data**
+*Time Planned*: 5h
+*Time Spent*: 3.5h
+*Notes*: Insights were incredibly useful for finding a good value for maximum tokens.
+- **implementing BERT**
+*Time Planned*: 15h
+*Time Spent*: 22h
+*Notes*: Unexpected difficulties utilizing BioBERT for transfer-learning.
+- **tuning BERT**
+*Time Planned*: 10h
+*Time Spent*: 19h (active)
+*Notes*: Setting up the environment for hyperparameter-tuning was not as hard as expected, but the tuning itself was way more computationally intense than anticipated. Furthermore, there initially was weird behaviour with the error metrics (explosive error rate and rapid forgetting) - fixing the bug was rather expensive.
