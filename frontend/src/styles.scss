@@ -1,0 +1,65 @@
+@tailwind base;
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Work Sans', sans-serif;
+
+  @apply bg-blue-50 #{!important};
+}
+
+
+@tailwind components;
+@tailwind utilities;
+
+@import 'ngx-toastr/toastr';
+
+#toast-container {
+  position: fixed;
+  z-index: 999999;
+  top: unset;
+  left: 20px; /* Adjust the value as needed */
+  bottom: 0; /* Adjust the value as needed */
+  /*overrides*/
+}
+
+.ngx-toastr {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.bg-dots-darker {
+  fill: #162E51 !important;
+  background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.09)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-dots-lighter {
+    background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")
+  }
+}
+
+#rendered-output {
+  .highlight {
+    @apply rounded px-[3px] py-0.5;
+
+    &.blue {
+      @apply bg-blue-300 text-blue-900 dark:bg-blue-900 dark:text-blue-100;
+    }
+
+    &.green {
+      @apply bg-green-300 text-green-900 dark:bg-green-900 dark:text-green-100;
+    }
+
+    &.red {
+      @apply bg-red-300 text-red-900 dark:bg-red-900 dark:text-red-100;
+    }
+
+    &.yellow {
+      @apply bg-yellow-300 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-100;
+    }
+
+    .descriptor {
+      @apply ml-1 text-sm uppercase align-text-bottom opacity-80;
+    }
+  }
+}

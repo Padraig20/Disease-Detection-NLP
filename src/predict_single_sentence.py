@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser(description='Enter a sentence for the model to 
 
 parser.add_argument('-l', '--length', type=bool, default=128,
                     help='Choose the maximum length of the model\'s input layer.')
-parser.add_argument('-m', '--model', type=str, default='../models/bert_medcond.pth',
+parser.add_argument('-m', '--model', type=str, default='../models/medcondbert.pth',
                     help='Choose the directory of the model to be used for prediction.')
 parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
                     help='Choose whether the given model has been trained on BioBERT or not. \

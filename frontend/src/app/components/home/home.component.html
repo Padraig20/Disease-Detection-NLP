@@ -1,0 +1,60 @@
+<h1 class="w-fit mx-auto my-4 sm:my-8 md:my-10 text-2xl sm:text-3xl md:text-5xl md:h-14 text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 dark:from-sky-300 to-sky-800 dark:to-sky-600 tracking-wider">Admission Note Analyzer</h1>
+
+<main class="max-w-5xl mx-auto my-4 sm:my-8 md:my-10 flex flex-col">
+  <textarea [(ngModel)]="text" rows="5" placeholder="Enter your admission note here" autofocus
+            class="w-full min-h-[10rem] rounded text-sky-800 dark:text-sky-200 placeholder-slate-400 dark:placeholder-slate-500 bg-white dark:bg-slate-800 disabled:opacity-60 border-0 ring-2 ring-inset ring-slate-300 dark:ring-slate-700 focus:ring-2 focus:ring-inset focus:ring-sky-600 dark:focus:ring-sky-400 caret-sky-700 dark:caret-sky-300"></textarea>
+
+  <div class="flex flex-col sm:flex-row-reverse sm:justify-between sm:items-start">
+    <button type="submit" [disabled]="text === '' || analyzing" (click)="analyzeNote()"
+            class="relative w-full sm:w-fit mt-2 sm:mt-4 md:mt-6 md:shadow-lg shadow-sky-300/50 md:dark:shadow-sky-700/60 text-center sm:text-right px-4 py-2 rounded text-sky-100 dark:text-sky-900 bg-sky-800 enabled:hover:bg-sky-900 dark:bg-sky-400 dark:enabled:hover:bg-sky-500 disabled:opacity-75 disabled:cursor-not-allowed uppercase font-semibold">
+      <span [ngClass]="{'invisible': analyzing}">Analyze Note</span>
+      <span *ngIf="analyzing" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <svg class="animate-spin h-5 w-5 text-inherit" xmlns="http://www.w3.org/2000/svg" fill="none"
+           viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </span>
+    </button>
+
+    <button type="submit" *ngIf="text.length === 0" (click)="loadExample()"
+            class="relative w-full sm:w-fit mt-2 sm:mt-4 md:mt-6 md:shadow-lg shadow-sky-300/50 md:dark:shadow-sky-700/60 text-center sm:text-right px-4 py-2 rounded text-sky-800 enabled:text-sky-900 dark:text-sky-400 enabled:dark:text-sky-500 ring-2 ring-inset ring-sky-800 enabled:hover:border-sky-900 dark:ring-sky-400 dark:enabled:hover:border-sky-500 disabled:opacity-75 disabled:cursor-not-allowed uppercase font-semibold">
+      <span>Example Note</span>
+    </button>
+  </div>
+
+  <div *ngIf='analyzed && analyzedText.length > 0' class="w-full p-4 mt-4 sm:mt-10 md:mt-12 mx-auto flex flex-col gap-4 rounded shadow text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 leading-[23px]" id="rendered-output">
+    <div class="flex flex-row gap-2 items-center">
+      <h2 class="w-fit text-slate-800 dark:text-slate-200 text-lg font-medium">Result</h2>
+      <div class="inline-block relative group hover:cursor-help">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-sky-700 dark:text-sky-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+        </svg>
+        <div class="hidden group-hover:block absolute left-0 w-[30rem] backdrop-blur-xl bg-opacity-60 p-2 shadow-xl border border-slate-300 dark:border-slate-600 rounded z-10">
+          <div class="flex flex-row gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-red-600 dark:text-red-500 flex-shrink-0">
+              <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            <p class="flex-grow text-sm text-slate-600 dark:text-slate-300">
+              Please be advised that the NLP model employed here is currently in an experimental phase and necessitates further training and optimization. At present, its primary focus lies in extracting medical conditions present in the provided text. It is crucial to note that this model is domain-specific and tailored for admission notes, as evident from the training data it has been exposed to.
+              <br>
+              Nonetheless, it is of utmost importance to exercise caution as the model may produce erroneous information or inadvertently overlook vital details. <b>Hence, if deployed for professional purposes, it is highly recommended to conduct thorough verification and validation of the generated output, thereby ensuring its accuracy and reliability.</b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-justify" [innerHTML]="sanitizeHTML(analyzedText)"></p>
+  </div>
+
+  <p class="w-full mt-4 sm:mt-10 md:mt-12 text-justify text-sm text-slate-600 dark:text-slate-400">
+  The main idea is free-text processing for extracting diagnoses and diseases from medical notes. This type of named entity recognition might be useful for e.g. converting unstructured data to specially constructed standards, suitable for deployment in Hospital Information Systems. For this kind of NER project, BERT models are anticipated to be effective. As such, the plan is to harness BERT base models and adapt them for this specialized task.
+
+  The primary dataset originates from the TREC CT topics, publicly accessible <a class="underline text-sky-600 dark:text-sky-400" href="http://trec-cds.org/topics2021.xml">here</a>.
+
+  Each topic has a similar structure, including several diagnoses in free text format. The topics represent admission notes - notes with the most important patient details, which a doctor takes as soon as a person is admitted to a hospital. This includes personal information and demographics, such as gender and age, but also and most importantly the current medical conditions, personal medical history and family medical history. For simplification purposes, the focus lies on detecting diseases/diagnoses present in the text, covering conditions such as diabetes mellitus or high blood pressure.
+  </p>
+</main>
+
