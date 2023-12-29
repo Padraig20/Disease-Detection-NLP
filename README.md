@@ -4,7 +4,7 @@
 
 The project revolves around a unique natural language processing challenge where
 the primary goal is to recognize specific named entities, especially in
-the context of medical conditions and diagnoses.
+the context of medical conditions and diagnoses. The project used **Python 3.11.6**.
 
 ## 2. Type of Project
 
