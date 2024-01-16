@@ -1,3 +1,20 @@
+import argparse
+parser = argparse.ArgumentParser(description='Enter a sentence for the model to work on.')
+
+parser.add_argument('-l', '--length', type=int, default=128,
+                    help='Choose the maximum length of the model\'s input layer.')
+parser.add_argument('-m', '--model', type=str, default='../models/medcondbert.pth',
+                    help='Choose the directory of the model to be used for prediction.')
+parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
+                    help='Choose whether the given model has been trained on BioBERT or not. \
+                    Careful: It will not work if wrongly specified!')
+parser.add_argument('sentence', type=str, help='Write your input sentence, preferrably an admission note!')
+
+args = parser.parse_args()
+max_length = args.length
+model_path = args.model
+sentence = args.sentence
+
 from utils.dataloader import Dataloader
 from utils.BertArchitecture import BertNER, BioBertNER
 from utils.metric_tracking import MetricsTracking
@@ -11,23 +28,6 @@ import pandas as pd
 
 from tqdm import tqdm
 from transformers import BertTokenizer,BertForTokenClassification
-
-import argparse
-parser = argparse.ArgumentParser(description='Enter a sentence for the model to work on.')
-
-parser.add_argument('-l', '--length', type=bool, default=128,
-                    help='Choose the maximum length of the model\'s input layer.')
-parser.add_argument('-m', '--model', type=str, default='../models/medcondbert.pth',
-                    help='Choose the directory of the model to be used for prediction.')
-parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
-                    help='Choose whether the given model has been trained on BioBERT or not. \
-                    Careful: It will not work if wrongly specified!')
-parser.add_argument('sentence', type=str, help='Write your input sentence, preferrably an admission note!')
-
-args = parser.parse_args()
-max_length = args.length
-model_path = args.model
-sentence = args.sentence
 
 if not args.transfer_learning:
     model = BertNER(3)

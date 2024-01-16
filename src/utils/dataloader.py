@@ -13,7 +13,7 @@ class Dataloader():
     tokenization of the data.
     """
 
-    def __init__(self, label_to_ids, ids_to_label, transfer_learning=False, max_tokens=128):
+    def __init__(self, label_to_ids, ids_to_label, transfer_learning, max_tokens):
         self.label_to_ids = label_to_ids
         self.ids_to_label = ids_to_label
         self.max_tokens = max_tokens
@@ -49,12 +49,12 @@ class Dataloader():
             train_data = data.sample((int) (len(data)*0.8), random_state=7).reset_index(drop=True)
             test_data = data.drop(train_data.index).reset_index(drop=True)
 
-            train_dataset = Custom_Dataset(train_data, tokenizer, self.label_to_ids, self.ids_to_label)
-            test_dataset = Custom_Dataset(test_data, tokenizer, self.label_to_ids, self.ids_to_label)
+            train_dataset = Custom_Dataset(train_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
+            test_dataset = Custom_Dataset(test_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
 
             return train_dataset, test_dataset
         else:
-            dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label)
+            dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
             return dataset
 
     def load_custom(self, data):
@@ -75,7 +75,7 @@ class Dataloader():
         else:
             tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
             tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
-        dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label)
+        dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
         return dataset
 
     def convert_id_to_label(self, ids):
@@ -124,7 +124,7 @@ class Custom_Dataset(Dataset):
     Dataset used for loading and tokenizing sentences on-the-fly.
     """
 
-    def __init__(self, data, tokenizer, label_to_ids, ids_to_label, max_tokens=128):
+    def __init__(self, data, tokenizer, label_to_ids, ids_to_label, max_tokens):
         self.data = data
         self.tokenizer = tokenizer
         self.label_to_ids = label_to_ids

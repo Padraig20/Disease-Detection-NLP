@@ -1,7 +1,7 @@
 import argparse
 parser = argparse.ArgumentParser(description='The backend of the specified frontend. Service obtains sentences and predicts entities.')
 
-parser.add_argument('-l', '--length', type=bool, default=128,
+parser.add_argument('-l', '--length', type=int, default=128,
                     help='Choose the maximum length of the model\'s input layer.')
 parser.add_argument('-m', '--model', type=str, default='../models/medcondbert.pth',
                     help='Choose the directory of the model to be used for prediction.')

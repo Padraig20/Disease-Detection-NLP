@@ -1,21 +1,3 @@
-from utils.dataloader import Dataloader
-from utils.BertArchitecture import BertNER
-from utils.BertArchitecture import BioBertNER
-from utils.metric_tracking import MetricsTracking
-from utils.training import train_loop
-
-import torch
-from torch.optim import SGD
-from torch.optim import Adam
-from torch.utils.data import DataLoader
-
-import numpy as np
-import pandas as pd
-
-from tqdm import tqdm
-
-#-------MAIN-------#
-
 import argparse
 
 parser = argparse.ArgumentParser(
@@ -35,8 +17,28 @@ parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
                     help='Choose whether the BioBERT model should be used as baseline or not.')
 parser.add_argument('-v', '--verbose', type=bool, default=False,
                     help='Choose whether the model should be evaluated after each epoch or only after the training.')
+parser.add_argument('-l', '--input_length', type=int, default=128,
+                    help='Choose the maximum length of the model\'s input layer.')
 
 args = parser.parse_args()
+
+from utils.dataloader import Dataloader
+from utils.BertArchitecture import BertNER
+from utils.BertArchitecture import BioBertNER
+from utils.metric_tracking import MetricsTracking
+from utils.training import train_loop
+
+import torch
+from torch.optim import SGD
+from torch.optim import Adam
+from torch.utils.data import DataLoader
+
+import numpy as np
+import pandas as pd
+
+from tqdm import tqdm
+
+#-------MAIN-------#
 
 if not args.transfer_learning:
     print("Training base BERT model...")
@@ -69,9 +71,11 @@ else:
         2:'O'
         }
 
-dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning)
+dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, args.input_length)
 
 train, test = dataloader.load_dataset()
+
+print(len(train.__getitem__(0)['input_ids']))
 
 if args.optimizer == 'SGD':
     print("Using SGD optimizer...")

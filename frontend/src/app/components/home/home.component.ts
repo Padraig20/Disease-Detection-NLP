@@ -39,11 +39,7 @@ export class HomeComponent {
       'c pain. The tumor is located in the T-L spine, unresectable anaplastic astrocytoma s/p radiation. Complicated by ' +
       'progressive lower extremity weakness and urinary retention. Patient initially presented with RLE weakness where h' +
       'is right knee gave out with difficulty walking and right anterior thigh numbness. MRI showed a spinal cord conus ' +
-      'mass which was biopsied and found to be anaplastic astrocytoma. Therapy included field radiation t10-l1 followed ' +
-      'by 11 cycles of temozolomide 7 days on and 7 days off. This was followed by CPT-11 Weekly x4 with Avastin Q2 week' +
-      's/ 2 weeks rest and repeat cycle. On ROS, pt denies pain, lightheadedness, headache, neck pain, sore throat, recent ' +
-      'illness or sick contacts, cough, shortness of breath, chest discomfort, heartburn, abd pain, n/v, diarrhea, ' +
-      'constipation, dysuria. '
+      'mass which was biopsied and found to be anaplastic astrocytoma.'
   }
 
   analyzeNote() {
