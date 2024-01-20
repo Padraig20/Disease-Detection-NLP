@@ -33,6 +33,7 @@ class Dataloader():
         else:
             tuple:
                 - train_dataset (Custom_Dataset): Dataset used for training.
+                - val_dataset (Custom_Dataset): Dataset used for validation.
                 - test_dataset (Custom_Dataset): Dataset sued for testing.
         """
         data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")
@@ -46,13 +47,21 @@ class Dataloader():
             tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
 
         if not full:
-            train_data = data.sample((int) (len(data)*0.8), random_state=7).reset_index(drop=True)
-            test_data = data.drop(train_data.index).reset_index(drop=True)
+            #train_data = data.sample((int) (len(data)*0.8), random_state=7).reset_index(drop=True)
+            #test_data = data.drop(train_data.index).reset_index(drop=True)
+
+            train_data = data.sample(frac=0.7, random_state=7).reset_index(drop=True)
+
+            remaining_data = data.drop(train_data.index).reset_index(drop=True)
+            val_data = remaining_data.sample(frac=0.2857, random_state=7).reset_index(drop=True)
+
+            test_data = remaining_data.drop(val_data.index).reset_index(drop=True)
 
             train_dataset = Custom_Dataset(train_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
+            val_dataset = Custom_Dataset(val_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
             test_dataset = Custom_Dataset(test_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
 
-            return train_dataset, test_dataset
+            return train_dataset, val_dataset, test_dataset
         else:
             dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
             return dataset

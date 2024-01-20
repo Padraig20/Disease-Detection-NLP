@@ -26,7 +26,7 @@ from utils.dataloader import Dataloader
 from utils.BertArchitecture import BertNER
 from utils.BertArchitecture import BioBertNER
 from utils.metric_tracking import MetricsTracking
-from utils.training import train_loop
+from utils.training import train_loop, testing
 
 import torch
 from torch.optim import SGD
@@ -73,9 +73,7 @@ else:
 
 dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, args.input_length)
 
-train, test = dataloader.load_dataset()
-
-print(len(train.__getitem__(0)['input_ids']))
+train, val, test = dataloader.load_dataset()
 
 if args.optimizer == 'SGD':
     print("Using SGD optimizer...")
@@ -87,13 +85,15 @@ else:
 parameters = {
     "model": model,
     "train_dataset": train,
-    "eval_dataset" : test,
+    "eval_dataset" : val,
     "optimizer" : optimizer,
     "batch_size" : args.batch_size,
     "epochs" : args.epochs
 }
 
 train_loop(**parameters, verbose=args.verbose)
+
+testing(model, test, args.batch_size)
 
 #save model if wanted
 if args.output:

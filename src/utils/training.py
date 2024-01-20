@@ -123,3 +123,47 @@ def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs
         print(f"VALIDATION\nMetrics {eval_results}\n")
 
     return train_results, eval_results
+
+def testing(model, test_dataset, batch_size):
+    """
+    Function for testing a trained model.
+
+    Parameters:
+    model (BertNER | BioBertNER): Model to be tested
+    train_dataset (Custom_Dataset): Dataset used for testing
+    batch_size (int): Batch size used during training.
+
+    Returns:
+    tuple:
+        - test_res (dict): A dictionary containing the results obtained during testing.
+    """
+
+    test_dataloader = DataLoader(test_dataset, batch_size = batch_size, shuffle = False)
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = model.to(device)
+
+    model.eval() #evaluation mode
+
+    test_metrics = MetricsTracking()
+
+    with torch.no_grad():
+
+        for test_data in test_dataloader:
+
+            test_label = test_data['entity'].to(device)
+            mask = test_data['attention_mask'].squeeze(1).to(device)
+            input_id = test_data['input_ids'].squeeze(1).to(device)
+
+            output = model(input_id, mask, test_label)
+            loss, logits = output.loss, output.logits
+
+            predictions = logits.argmax(dim=-1)
+
+            test_metrics.update(predictions, test_label, loss.item())
+
+        test_results = test_metrics.return_avg_metrics(len(test_dataloader))
+
+        print(f"TEST\nMetrics {test_results}\n")
+
+    return test_results
