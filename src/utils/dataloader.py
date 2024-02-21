@@ -6,6 +6,35 @@ from torch import nn
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 from transformers import BertTokenizer,BertForTokenClassification
+import random
+import nltk
+from nltk.tokenize import sent_tokenize
+nltk.download('punkt')
+
+
+def shuffle_sentences_and_entities(text, entities):
+    sentences = sent_tokenize(text)
+    entity_tokens = entities.split() # align with words in text
+
+    # identify start and end indices of sentences in terms of word counts
+    word_counts = [len(sentence.split()) for sentence in sentences]
+    start_indices = [sum(word_counts[:i]) for i in range(len(word_counts))]
+    end_indices = [sum(word_counts[:i+1]) for i in range(len(word_counts))]
+
+    # split entities into groups (corresponding to sentences)
+    sentence_entities = [entity_tokens[start:end] for start, end in zip(start_indices, end_indices)]
+
+    # shuffle sentence-entities pairs
+    combined = list(zip(sentences, sentence_entities))
+    random.seed(42)
+    random.shuffle(combined)
+    shuffled_sentences, shuffled_sentence_entities = zip(*combined)
+
+    # reconstruction
+    augmented_text = ' '.join(shuffled_sentences)
+    augmented_entities = ' '.join([' '.join(entity_group) for entity_group in shuffled_sentence_entities])
+
+    return augmented_text, augmented_entities
 
 class Dataloader():
     """
@@ -19,13 +48,15 @@ class Dataloader():
         self.max_tokens = max_tokens
         self.transfer_learning = transfer_learning
 
-    def load_dataset(self, full = False):
+    def load_dataset(self, full = False, augment = False):
         """
         Loads the dataset and automatically initialized a tokenizer for the Custom_Dataset initialization.
 
         Parameters:
-        full (bool): Whether the function should return the whole dataset or not - will return a train-test split
+        full (bool): Whether the function should return the whole dataset or not - will return a train-val-test split
                      according to the Pareto principle (80:20).
+        augment (bool): Whether the existing dataset should be extended via augmented data. Augmentation in this sense
+                        means that the dataset will be extended via instances where the sentences are randomly switched around.
 
         Returns:
         if full:
@@ -56,6 +87,13 @@ class Dataloader():
             val_data = remaining_data.sample(frac=0.2857, random_state=7).reset_index(drop=True)
 
             test_data = remaining_data.drop(val_data.index).reset_index(drop=True)
+
+            if augment:
+                augmented_rows = [shuffle_sentences_and_entities(text, entities) for text, entities in zip(train_data['text'], train_data['entity'])]
+                augmented_texts, augmented_entities = zip(*augmented_rows)
+
+                augmented_data = pd.DataFrame({'text': augmented_texts, 'entity': augmented_entities})
+                train_data = pd.concat([train_data, augmented_data]).reset_index(drop=True)
 
             train_dataset = Custom_Dataset(train_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
             val_dataset = Custom_Dataset(val_data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)

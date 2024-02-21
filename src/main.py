@@ -19,6 +19,8 @@ parser.add_argument('-v', '--verbose', type=bool, default=False,
                     help='Choose whether the model should be evaluated after each epoch or only after the training.')
 parser.add_argument('-l', '--input_length', type=int, default=128,
                     help='Choose the maximum length of the model\'s input layer.')
+parser.add_argument('-ag', '--data_augmentation', type=bool, default=False,
+                    help='Choose whether data-augmentation should be used.')
 
 args = parser.parse_args()
 
@@ -73,7 +75,7 @@ else:
 
 dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, args.input_length)
 
-train, val, test = dataloader.load_dataset()
+train, val, test = dataloader.load_dataset(augment = args.data_augmentation)
 
 if args.optimizer == 'SGD':
     print("Using SGD optimizer...")

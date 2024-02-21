@@ -4207,9 +4207,9 @@ diastolic B-MEDCOND
 dysfunction I-MEDCOND
 , O
 varices B-MEDCOND
-s I-MEDCOND
-p I-MEDCOND
-TIPS I-MEDCOND
+s O
+p O
+TIPS O
 and O
 hypothyroidism B-MEDCOND
 presenting O
@@ -5228,7 +5228,7 @@ ago O
 , O
 polysubstance O
 abuse O
-ncluding O
+including O
 IV O
 heroin O
 , O
@@ -7269,7 +7269,7 @@ acute B-MEDCOND
 pulmonary I-MEDCOND
 edema I-MEDCOND
 CHF B-MEDCOND
-unresponsiveness B-MEDCOND
+unresponsiveness O
 ? O
 . O
 There O
@@ -16039,7 +16039,7 @@ hx O
 recent O
 PE B-MEDCOND
 DVT B-MEDCOND
-, I-MEDCOND
+, O
 atrial B-MEDCOND
 fibrillation I-MEDCOND
 , O
@@ -16531,7 +16531,7 @@ nausea O
 , O
 vomitting O
 and O
-diarrhea B-MEDCOND
+diarrhea O
 . O
 Labs O
 are O
@@ -19637,7 +19637,7 @@ X I-MEDCOND
 mental I-MEDCOND
 retardation I-MEDCOND
 1 I-MEDCOND
-FMR1 B-MEDCOND
+FMR1 O
 gene O
 , O
 located O
@@ -22633,7 +22633,7 @@ HA O
 , O
 Denies O
 CP B-MEDCOND
-SOB B-MEDCOND
+SOB O
 . O
 No O
 sensory O
