@@ -1,4 +1,5 @@
-from sklearn.metrics import accuracy_score,f1_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score,f1_score, precision_score, recall_score, confusion_matrix
+import numpy as np
 import torch
 
 class MetricsTracking():
@@ -11,6 +12,9 @@ class MetricsTracking():
         self.total_precision = 0
         self.total_recall = 0
         self.total_loss = 0
+
+        self.total_predictions = []
+        self.total_labels = []
 
     def update(self, predictions, labels, loss, ignore_token=-100):
         """
@@ -31,15 +35,25 @@ class MetricsTracking():
         predictions = predictions.to("cpu")
         labels = labels.to("cpu")
 
-        acc = accuracy_score(labels, predictions)
-        f1 = f1_score(labels, predictions, zero_division=0, average = "macro")
-        precision = precision_score(labels, predictions, zero_division=0, average = "macro")
-        recall = recall_score(labels, predictions, zero_division=0, average = "macro")
+        #print(predictions.numpy())
 
-        self.total_acc  += acc
-        self.total_f1 += f1
-        self.total_precision += precision
-        self.total_recall  += recall
+        #self.total_predictions = self.total_predictions + predictions.numpy()
+        #self.total_labels = self.total_labels + labels.numpy()
+
+        self.total_predictions.append(predictions.numpy())
+        self.total_labels.append(labels.numpy())
+
+        #print(np.concatenate(self.total_predictions, axis=0))
+
+        #acc = accuracy_score(labels, predictions)
+        #f1 = f1_score(labels, predictions, zero_division=0, average = "macro")
+        #precision = precision_score(labels, predictions, zero_division=0, average = "macro")
+        #recall = recall_score(labels, predictions, zero_division=0, average = "macro")
+
+        #self.total_acc  += acc
+        #self.total_f1 += f1
+        #self.total_precision += precision
+        #self.total_recall  += recall
         self.total_loss += loss
 
     def return_avg_metrics(self, data_loader_size):
@@ -53,11 +67,20 @@ class MetricsTracking():
         metrics (dict): All the metrics calculated until now.
         """
         n = data_loader_size
+
+        total_labels = np.concatenate(self.total_labels, axis=0)
+        total_predictions = np.concatenate(self.total_predictions, axis=0)
+
+        #print(f"TOTAL F1-SCORE: {round(f1_score(total_labels, total_predictions, zero_division=0, average='macro'), 3)}")
+
+        #print(confusion_matrix(total_labels, total_predictions))
+
         metrics = {
-            "acc": round(self.total_acc / n ,3),
-            "f1": round(self.total_f1 / n, 3),
-            "precision" : round(self.total_precision / n, 3),
-            "recall": round(self.total_recall / n, 3),
-            "loss": round(self.total_loss / n, 3)
+            "acc": round(accuracy_score(total_labels, total_predictions), 3),
+            "f1": round(f1_score(total_labels, total_predictions, zero_division=0, average='macro'), 3),
+            "precision" : round(precision_score(total_labels, total_predictions, zero_division=0, average='macro'), 3),
+            "recall": round(recall_score(total_labels, total_predictions, zero_division=0, average='macro'), 3),
+            "loss": round(self.total_loss / n, 3),
+            "confusion matrix": confusion_matrix(total_labels, total_predictions)
             }
         return metrics
