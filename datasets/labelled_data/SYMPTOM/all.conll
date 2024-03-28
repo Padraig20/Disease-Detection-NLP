@@ -7511,8 +7511,8 @@ on O
 2 O
 with O
 recurrent O
-chest I-SYMPTOM
-pain O
+chest B-SYMPTOM
+pain I-SYMPTOM
 . O
 Ruled O
 out O
@@ -7522,8 +7522,8 @@ MI O
 Last O
 episode O
 of O
-chest O
-pressure O
+chest B-SYMPTOM
+pressure I-SYMPTOM
 was O
 the O
 morning O

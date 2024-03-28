@@ -7,7 +7,7 @@ def jsonl_to_csv(input_filepath, output_filepath, annotation_type, annotation_ty
 
     with open(output_filepath, 'w', encoding='utf-8') as file:
         for entry in jsonl_data:
-            text = entry['text'].replace('\n', ' ')
+            text = entry['text'].replace('\n', ' ').replace('\\r\\n', ' ').replace('\\n', ' ').replace('\\r', ' ')
             entities = [e for e in entry['entities'] if e['label'] == annotation_type_name]
             entities.sort(key=lambda e: e['start_offset']) #sort by start offset
             
@@ -44,9 +44,9 @@ parser = argparse.ArgumentParser(
         description='This script is used to convert JSONL data into CSV format.')
 
 parser.add_argument('-o', '--output', type=str, default="all.csv",
-                    help='Choose where to save the model after training. Saving is optional.')
+                    help='Choose where to save the file after modifying.')
 parser.add_argument('-i', '--input', type=str, default="all.jsonl",
-                    help='Choose where to save the model after training. Saving is optional.')
+                    help='Choose the file to modify.')
 parser.add_argument('-t', '--type', type=str, required=True,
                     help='Specify the type of annotation to process. Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 

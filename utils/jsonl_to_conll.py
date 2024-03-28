@@ -39,9 +39,9 @@ parser = argparse.ArgumentParser(
         description='This script is used to convert JSONL data into CONLL format.')
 
 parser.add_argument('-o', '--output', type=str, default="all.conll",
-                    help='Choose where to save the model after training. Saving is optional.')
+                    help='Choose where to save the file after modifying.')
 parser.add_argument('-i', '--input', type=str, default="all.jsonl",
-                    help='Choose where to save the model after training. Saving is optional.')
+                    help='Choose the file to modify.')
 parser.add_argument('-t', '--type', type=str, required=True,
                     help='Specify the type of annotation to process. Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 
