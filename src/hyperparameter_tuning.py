@@ -8,7 +8,7 @@ from sklearn.model_selection import KFold
 from torch.optim import SGD
 from torch.optim import Adam
 
-def get_label_descriptions(transfer_learning):
+def get_label_descriptions(transfer_learning, type):
     """
     This function returns the correct label descriptions according to the
     current Model Architecture in use.
@@ -22,32 +22,40 @@ def get_label_descriptions(transfer_learning):
         - ids_to_label (dict): A dictionary mapping IDs back to their respective labels.
     """
     if not transfer_learning:
-        print("Tuning base BERT model...")
-        label_to_ids = {
-            'B-MEDCOND': 0,
-            'I-MEDCOND': 1,
-            'O': 2
-            }
 
-        ids_to_label = {
-            0:'B-MEDCOND',
-            1:'I-MEDCOND',
-            2:'O'
-            }
+        if type == 'Medical Condition':
+            type = 'MEDCOND'
+        elif type == 'Symptom':
+            type = 'SYMPTOM'
+        elif type == 'Medication':
+            type = 'MEDICATION'
+        elif type == 'Vital Statistic':
+            type = 'VITALSTAT'
+        elif type == 'Measurement Value':
+            type = 'MEASVAL'
+        elif type == 'Negation Cue':
+            type = 'NEGATION'
+        elif type == 'Medical Procedure':
+            type = 'PROCEDURE'
+        else:    
+            raise ValueError('Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
     else:
-        print("Tuning BERT model based on BioBERT diseases...")
-        label_to_ids = {
-            'B-DISEASE': 0,
-            'I-DISEASE': 1,
-            'O': 2
-            }
+        if not type == 'Medical Condition':
+            raise ValueError('Type of annotation needs to be Medical Condition when using BioBERT as baseline.')
+        type = 'DISEASE'
 
-        ids_to_label = {
-            0:'B-DISEASE',
-            1:'I-DISEASE',
-            2:'O'
-            }
-    return label_to_ids, ids_to_label
+    label_to_ids = {
+        'B-' + type: 0,
+        'I-' + type: 1,
+        'O': 2
+    }
+
+    ids_to_label = {
+        0:'B-' + type,
+        1:'I-' + type,
+        2:'O'
+    }
+    return label_to_ids, ids_to_label, type
 
 def initialize_model(transfer_learning):
     """
@@ -61,12 +69,12 @@ def initialize_model(transfer_learning):
     model (BertNER | BioBertNER)
     """
     if not transfer_learning:
-        model = BertNER(3) #O, B-MEDCOND, I-MEDCOND -> 3 entities
+        model = BertNER(3) #O, B-, I- -> 3 entities
     else:
         model = BioBertNER(3)
     return model
 
-def train_fold(transfer_learning, train_idx, val_idx, batch_size, learning_rate, optimizer_name, epoch):
+def train_fold(transfer_learning, train_idx, val_idx, batch_size, learning_rate, optimizer_name, epoch, type):
     """
     Trains a whole fold during hyperparameter tuning.
 
@@ -102,7 +110,8 @@ def train_fold(transfer_learning, train_idx, val_idx, batch_size, learning_rate,
         "batch_size" : batch_size,
         "epochs" : epoch,
         "train_sampler": train_subsampler,
-        "eval_sampler": val_subsampler
+        "eval_sampler": val_subsampler,
+        "type" : type
     }
 
     train_res, test_res = train_loop(**parameters, verbose=False)
@@ -114,19 +123,25 @@ parser = argparse.ArgumentParser(
         description='This class is used to optimize the hyperparameters of either the pretrained BioBERT or the base BERT.')
 parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
                     help='Choose whether the BioBERT model should be used as baseline or not.')
+parser.add_argument('-t', '--type', type=str, required=True,
+                    help='Specify the type of annotation to process. Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 
 args = parser.parse_args()
 
+if args.type not in ['Medical Condition', 'Symptom', 'Medication', 'Vital Statistic', 'Measurement Value', 'Negation Cue', 'Medical Procedure']:
+    raise ValueError('Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
+
+
 #-----hyperparameter grids-----#
 
-batch_sizes = [8]  #[8,16,32]
+batch_sizes = [8, 16]  #[8,16,32]
 learning_rates = [0.1] #[0.1, 0.01, 0.001, 0.0001]
 optimizers = ['SGD']  #['SGD', 'Adam']
-epochs = [5] #[5, 10]
+epochs = [1] #[5, 10]
 max_tokens = 128
 
-label_to_ids, ids_to_label = get_label_descriptions(args.transfer_learning)
-dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, max_tokens=max_tokens)
+label_to_ids, ids_to_label, type = get_label_descriptions(args.transfer_learning, args.type)
+dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, max_tokens, type)
 data = dataloader.load_dataset(full=True)
 
 best_f1_score = 0
@@ -145,8 +160,8 @@ for batch_size in batch_sizes:
                 kf = KFold(n_splits=4, shuffle=True, random_state=7)
                 test_f1_scores = []
                 for fold, (train_idx, val_idx) in enumerate(kf.split(data)):
-                    train_res, test_res = train_fold(args.transfer_learning, train_idx, val_idx, batch_size, learning_rate, optimizer_name, epoch)
-                    test_f1_scores.append(test_res['f1'])
+                    train_res, test_res = train_fold(args.transfer_learning, train_idx, val_idx, batch_size, learning_rate, optimizer_name, epoch, type)
+                    test_f1_scores.append(test_res['avg_f1_score'])
                     print(f"Finished fold {fold+1} of 4!")
                 local_best_f1 = sum(test_f1_scores) / len(test_f1_scores)
                 if local_best_f1 > best_f1_score:

@@ -12,7 +12,7 @@ import pandas as pd
 
 from tqdm import tqdm
 
-def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs, train_sampler=None, eval_sampler=None, verbose=True):
+def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs, type, train_sampler=None, eval_sampler=None, verbose=True):
     """
     Usual training loop, including training and evaluation.
 
@@ -46,7 +46,7 @@ def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs
     #training
     for epoch in range(epochs):
 
-        train_metrics = MetricsTracking()
+        train_metrics = MetricsTracking(type)
 
         model.train() #train mode
 
@@ -71,7 +71,7 @@ def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs
         if verbose:
             model.eval() #evaluation mode
 
-            eval_metrics = MetricsTracking()
+            eval_metrics = MetricsTracking(type)
 
             with torch.no_grad():
 
@@ -98,7 +98,7 @@ def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs
     if not verbose:
         model.eval() #evaluation mode
 
-        eval_metrics = MetricsTracking()
+        eval_metrics = MetricsTracking(type)
 
         with torch.no_grad():
 
@@ -124,7 +124,7 @@ def train_loop(model, train_dataset, eval_dataset, optimizer, batch_size, epochs
 
     return train_results, eval_results
 
-def testing(model, test_dataset, batch_size):
+def testing(model, test_dataset, batch_size, type):
     """
     Function for testing a trained model.
 
@@ -145,7 +145,7 @@ def testing(model, test_dataset, batch_size):
 
     model.eval() #evaluation mode
 
-    test_metrics = MetricsTracking()
+    test_metrics = MetricsTracking(type)
 
     with torch.no_grad():
 

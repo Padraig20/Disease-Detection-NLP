@@ -42,11 +42,12 @@ class Dataloader():
     tokenization of the data.
     """
 
-    def __init__(self, label_to_ids, ids_to_label, transfer_learning, max_tokens):
+    def __init__(self, label_to_ids, ids_to_label, transfer_learning, max_tokens, type):
         self.label_to_ids = label_to_ids
         self.ids_to_label = ids_to_label
         self.max_tokens = max_tokens
         self.transfer_learning = transfer_learning
+        self.type = type
 
     def load_dataset(self, full = False, augment = False):
         """
@@ -67,15 +68,16 @@ class Dataloader():
                 - val_dataset (Custom_Dataset): Dataset used for validation.
                 - test_dataset (Custom_Dataset): Dataset sued for testing.
         """
-        data = pd.read_csv('../datasets/labelled_data/all.csv', names=['text', 'entity'], header=None, sep="|")
 
         if self.transfer_learning:
+            data = pd.read_csv("../datasets/labelled_data/MEDCOND/all.csv", names=['text', 'entity'], header=None, sep="|")
             tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
             data['entity'] = data['entity'].apply(lambda x: x.replace('B-MEDCOND', 'B-DISEASE'))
             data['entity'] = data['entity'].apply(lambda x: x.replace('I-MEDCOND', 'I-DISEASE'))
         else:
+            data = pd.read_csv(f"../datasets/labelled_data/{self.type}/all.csv", names=['text', 'entity'], header=None, sep="|")
             tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-            tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
+            tokenizer.add_tokens(['B-' + self.type, 'I-' + self.type, 'O'])
 
         if not full:
             #train_data = data.sample((int) (len(data)*0.8), random_state=7).reset_index(drop=True)
@@ -121,7 +123,7 @@ class Dataloader():
             data['entity'] = data['entity'].apply(lambda x: x.replace('I-MEDCOND', 'I-DISEASE'))
         else:
             tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-            tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
+            tokenizer.add_tokens(['B-' + self.type, 'I-' + self.type, 'O'])
         dataset = Custom_Dataset(data, tokenizer, self.label_to_ids, self.ids_to_label, self.max_tokens)
         return dataset
 

@@ -21,8 +21,13 @@ parser.add_argument('-l', '--input_length', type=int, default=128,
                     help='Choose the maximum length of the model\'s input layer.')
 parser.add_argument('-ag', '--data_augmentation', type=bool, default=False,
                     help='Choose whether data-augmentation should be used.')
+parser.add_argument('-t', '--type', type=str, required=True,
+                    help='Specify the type of annotation to process. Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 
 args = parser.parse_args()
+
+if args.type not in ['Medical Condition', 'Symptom', 'Medication', 'Vital Statistic', 'Measurement Value', 'Negation Cue', 'Medical Procedure']:
+    raise ValueError('Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 
 from utils.dataloader import Dataloader
 from utils.BertArchitecture import BertNER
@@ -44,36 +49,47 @@ from tqdm import tqdm
 
 if not args.transfer_learning:
     print("Training base BERT model...")
-    model = BertNER(3) #O, B-MEDCOND, I-MEDCOND -> 3 entities
+    model = BertNER(3) #O, B-, I- -> 3 entities
 
-    label_to_ids = {
-        'B-MEDCOND': 0,
-        'I-MEDCOND': 1,
-        'O': 2
-        }
+    if args.type == 'Medical Condition':
+        type = 'MEDCOND'
+    elif args.type == 'Symptom':
+        type = 'SYMPTOM'
+    elif args.type == 'Medication':
+        type = 'MEDICATION'
+    elif args.type == 'Vital Statistic':
+        type = 'VITALSTAT'
+    elif args.type == 'Measurement Value':
+        type = 'MEASVAL'
+    elif args.type == 'Negation Cue':
+        type = 'NEGATION'
+    elif args.type == 'Medical Procedure':
+        type = 'PROCEDURE'
+    else:    
+        raise ValueError('Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 
-    ids_to_label = {
-        0:'B-MEDCOND',
-        1:'I-MEDCOND',
-        2:'O'
-        }
 else:
     print("Training BERT model based on BioBERT diseases...")
-    model = BioBertNER(3)
 
-    label_to_ids = {
-        'B-DISEASE': 0,
-        'I-DISEASE': 1,
-        'O': 2
-        }
+    if not args.type == 'Medical Condition':
+        raise ValueError('Type of annotation needs to be Medical Condition when using BioBERT as baseline.')
 
-    ids_to_label = {
-        0:'B-DISEASE',
-        1:'I-DISEASE',
-        2:'O'
-        }
+    model = BioBertNER(3) #O, B-, I- -> 3 entities
+    type = 'DISEASE'
 
-dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, args.input_length)
+label_to_ids = {
+    'B-' + type: 0,
+    'I-' + type: 1,
+    'O': 2
+    }
+
+ids_to_label = {
+    0:'B-' + type,
+    1:'I-' + type,
+    2:'O'
+    }
+
+dataloader = Dataloader(label_to_ids, ids_to_label, args.transfer_learning, args.input_length, type)
 
 train, val, test = dataloader.load_dataset(augment = args.data_augmentation)
 
@@ -90,12 +106,13 @@ parameters = {
     "eval_dataset" : val,
     "optimizer" : optimizer,
     "batch_size" : args.batch_size,
-    "epochs" : args.epochs
+    "epochs" : args.epochs,
+    "type" : type
 }
 
 train_loop(**parameters, verbose=args.verbose)
 
-testing(model, test, args.batch_size)
+testing(model, test, args.batch_size, type)
 
 #save model if wanted
 if args.output:

@@ -1,3 +1,8 @@
+#-------------------------------------------------------------------------------------------------------
+#----------------------------------  IMPLEMENTATION BY DAVIDSBATISTA  ----------------------------------
+#----------------------- Source: https://github.com/davidsbatista/NER-Evaluation -----------------------
+#-------------------------------------------------------------------------------------------------------
+
 import logging
 from collections import namedtuple
 from copy import deepcopy
@@ -458,7 +463,9 @@ def compute_precision_recall_wrapper(results):
 
     return results
 
-# -------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------
+#-------------------------------------------  WRAPPER CLASS  -------------------------------------------
+#-------------------------------------------------------------------------------------------------------
 
 import numpy as np
 import torch
@@ -467,14 +474,15 @@ class MetricsTracking():
     """
     Class used for tracking the most prominent metrics, including accuracy, f1, precision, recall and loss.
     """
-    def __init__(self):
+    def __init__(self, type):
 
         self.total_predictions = []
         self.total_labels = []
+        self.type = type
 
         self.ids_to_label = {
-            0:'B-MEDCOND',
-            1:'I-MEDCOND',
+            0:'B-' + type,
+            1:'I-' + type,
             2:'O'
         }
 
@@ -517,6 +525,38 @@ class MetricsTracking():
         true_entities = collect_named_entities(total_labels)
         pred_entities = collect_named_entities(total_predictions)
 
-        results = compute_metrics(true_entities, pred_entities, tags = ["MEDCOND"])
+        results = compute_metrics(true_entities, pred_entities, tags = [self.type])
+
+        # transform the results into a more readable dictionary
+
+        combined_results = {}
+
+        for section_dict in results:
+            for section, metrics_dict in section_dict.items():
+                if section != self.type:  # skip (not necessary in binary classification)
+                    combined_results[section] = metrics_dict
+        
+        results = combined_results
+
+        # recalculate precision and recall
+        def calculate_metrics(metrics):
+            precision = metrics['correct'] / (metrics['correct'] + metrics['spurious']) if (metrics['correct'] + metrics['spurious']) else 0
+            recall = metrics['correct'] / (metrics['correct'] + metrics['missed']) if (metrics['correct'] + metrics['missed']) else 0
+            f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) else 0
+            return precision, recall, f1_score
+
+        f1_scores = 0
+        for category, metrics in results.items():
+            precision, recall, f1_score = calculate_metrics(metrics)
+            f1_scores = f1_scores + f1_score
+            
+            # exchange values
+            results[category]['precision'] = precision
+            results[category]['recall'] = recall
+            results[category]['f1_score'] = f1_score
+
+        f1_scores = f1_scores / len(results)
+
+        results['avg_f1_score'] = f1_scores
 
         return results
