@@ -8,7 +8,10 @@ parser.add_argument('-m', '--model', type=str, default='../models/medcondbert.pt
 parser.add_argument('-tr', '--transfer_learning', type=bool, default=False,
                     help='Choose whether the given model has been trained on BioBERT or not. \
                     Careful: It will not work if wrongly specified!')
-parser.add_argument('sentence', type=str, help='Write your input sentence, preferrably an admission note!')
+parser.add_argument('sentence', type=str,
+                    help='Write your input sentence, preferrably an admission note!')
+parser.add_argument('-t', '--type', type=str, required=True,
+                    help='Specify the type of annotation to process. Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
 
 args = parser.parse_args()
 max_length = args.length
@@ -30,16 +33,47 @@ from tqdm import tqdm
 from transformers import BertTokenizer,BertForTokenClassification
 
 if not args.transfer_learning:
-    model = BertNER(3)
+    print("Training base BERT model...")
+    model = BertNER(3) #O, B-, I- -> 3 entities
+
+    if args.type == 'Medical Condition':
+        type = 'MEDCOND'
+    elif args.type == 'Symptom':
+        type = 'SYMPTOM'
+    elif args.type == 'Medication':
+        type = 'MEDICATION'
+    elif args.type == 'Vital Statistic':
+        type = 'VITALSTAT'
+    elif args.type == 'Measurement Value':
+        type = 'MEASVAL'
+    elif args.type == 'Negation Cue':
+        type = 'NEGATION'
+    elif args.type == 'Medical Procedure':
+        type = 'PROCEDURE'
+    else:    
+        raise ValueError('Type of annotation needs to be one of the following: Medical Condition, Symptom, Medication, Vital Statistic, Measurement Value, Negation Cue, Medical Procedure')
+    
     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-    tokenizer.add_tokens(['B-MEDCOND', 'I-MEDCOND'])
+    tokenizer.add_tokens(['B-' + args.type, 'I-' + args.type])
 else:
-    model = BioBertNER(3)
+    print("Training BERT model based on BioBERT diseases...")
+
+    if not args.type == 'Medical Condition':
+        raise ValueError('Type of annotation needs to be Medical Condition when using BioBERT as baseline.')
+
+    model = BioBertNER(3) #O, B-, I- -> 3 entities
     tokenizer = BertTokenizer.from_pretrained('alvaroalon2/biobert_diseases_ner')
+    type = 'DISEASE'
+
+label_to_ids = {
+    'B-' + type: 0,
+    'I-' + type: 1,
+    'O': 2
+    }
 
 ids_to_label = {
-    0:'B-MEDCOND',
-    1:'I-MEDCOND',
+    0:'B-' + type,
+    1:'I-' + type,
     2:'O'
     }
 
